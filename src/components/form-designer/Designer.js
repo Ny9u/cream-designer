@@ -7,7 +7,9 @@ import { Widget } from './Widget'
 import { ClearWidgetCommand } from './command/ClearWidgetCommand'
 import {ImportWidgetCommand } from './command/ImportWidgetCommand'
 import { ElMessage } from 'element-plus'
-
+import { MoveWidgetCommand } from './command/MoveWidgetCommand'
+import { CopyWidgetToContainerCommand } from './command/CopyWidgetToContainerCommand'
+import { RemoveWidgetCommand } from './command/RemoveWidgetCommand'
 
 export class Designer {
   constructor(option) {
@@ -59,6 +61,7 @@ export class Designer {
         )
     } 
   }
+  //清空所有物料
   clearWidget(){
     this.command.execute(
       new ClearWidgetCommand(
@@ -75,7 +78,7 @@ export class Designer {
     index !== null && index !== undefined && (this.selectedWidget.index = index)
     window.dispatchEvent(new CustomEvent('select_widget'))//发送select_widget事件,会触发clearwidgetchioce
   }
-    // 获取表单数据
+  // 获取表单数据
   getJSON() {
     const data = {}
     for (let [propName, widget] of this.widgetMap.entries()) {
@@ -83,7 +86,7 @@ export class Designer {
     }
     return JSON.stringify(data, null, '  ')
   }
-    // 返回选中物料属性
+  // 返回选中物料属性
   getSeletedWidgetOptions() {
     return this.selectedWidget?.options ?? {}
   }
@@ -113,6 +116,34 @@ export class Designer {
     this.selectedWidget = target
     this.selectedWidget.index = index
     window.dispatchEvent(new CustomEvent('select_widget'))
+  }
+  //检测工作区的物料移动
+  checkMove() {}
+  //工作区物料更新回调
+  dragUpdate = (e) => {
+    const {oldIndex, newIndex} = e
+    this.command.execute(
+      new MoveWidgetCommand(this.widgetList, oldIndex, newIndex),
+      false,
+    )
+  }
+  //复制一个相同的组件到容器
+  copyWidgetToContainer(widget, widgetList) {
+    this.command.execute(
+      new CopyWidgetToContainerCommand(widget, widgetList, this.widgetMap),
+    )
+  }
+  //从容器中删除组件
+  removeWidget(widgetList=this.widgetList)
+  {
+    this.command.execute(
+      new RemoveWidgetCommand(
+        widgetList,//物料集合
+        this.selectWidget.bind(this),
+        this.selectedWidget,//选中的物料
+        this.widgetMap,//物料映射关系
+      )
+    )
   }
 }  
 
