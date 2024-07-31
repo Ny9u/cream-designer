@@ -1,27 +1,27 @@
 <template>
   <form-item-wrapper :widget="widget" :is-design="isDesign" :parent="parent">
-    <el-input
-      v-model="state.optionsModel.value"
-      placeholder="请输入"
-      @focus="onFocusHandle"
-      @blur="onBlurHandle"
-      @input="onInputHandle"
-      @change="onChangeHandle"
-      @clear="onClearHandle"
+    <el-rate
+    v-model="state.optionsModel.value"
+    show-text
+    :texts="array"
+    @change="onChangeHandle"
     >
-    </el-input>
+    </el-rate>
   </form-item-wrapper>
 </template>
 
 <script setup>
-import formItemWrapper from './form-item-wrapper.vue'
-import { reactive, computed} from 'vue'
+import { computed, reactive } from 'vue'
 import registerEvents from '../registerEvents'
-const emits=defineEmits(['update:options'])
+import formItemWrapper from './form-item-wrapper.vue'
+
+const array=['一星','二星','三星','四星','五星']
+
 defineOptions({
-  name: 'input-widget',
+  name: 'rate-widget',
   mixins: [registerEvents],
 })
+
 const props = defineProps({
   widget: {
     type: Object,
@@ -41,6 +41,8 @@ const props = defineProps({
   },
 })
 
+const emits=defineEmits(['update:options'])
+
 const state = reactive({
   optionsModel: computed({
     get() {
@@ -51,5 +53,4 @@ const state = reactive({
     },
   }),
 })
-
 </script>

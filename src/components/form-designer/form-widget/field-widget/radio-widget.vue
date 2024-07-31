@@ -1,28 +1,29 @@
 <template>
   <form-item-wrapper :widget="widget" :is-design="isDesign" :parent="parent">
-    <el-input
-      v-model="state.optionsModel.value"
-      placeholder="请输入"
-      @focus="onFocusHandle"
-      @blur="onBlurHandle"
-      @input="onInputHandle"
-      @change="onChangeHandle"
-      @clear="onClearHandle"
+    <el-radio-group 
+    v-model="state.optionsModel.value" 
+    @change="onChangeHandle"
+    class="radio-group"
     >
-    </el-input>
+        <div>
+            <el-radio label='A' border>选项A</el-radio>
+            <el-radio label='B' border>选项B</el-radio>
+            <el-radio label='C' border>选项C</el-radio>
+            <el-radio label='D' border>选项D</el-radio>
+        </div>
+    </el-radio-group>
   </form-item-wrapper>
 </template>
 
 <script setup>
 import formItemWrapper from './form-item-wrapper.vue'
-import { reactive, computed} from 'vue'
+import { reactive, computed} from 'vue' 
 import registerEvents from '../registerEvents'
-const emits=defineEmits(['update:options'])
 defineOptions({
-  name: 'input-widget',
+  name: 'radio-widget',
   mixins: [registerEvents],
 })
-const props = defineProps({
+const props=defineProps({
   widget: {
     type: Object,
     default: () => {},
@@ -41,6 +42,7 @@ const props = defineProps({
   },
 })
 
+const emits=defineEmits(['update:options'])
 const state = reactive({
   optionsModel: computed({
     get() {
@@ -53,3 +55,9 @@ const state = reactive({
 })
 
 </script>
+
+<style scoped>
+.radio-group{
+    margin-top:5px
+}
+</style>

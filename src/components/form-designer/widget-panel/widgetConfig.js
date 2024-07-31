@@ -64,7 +64,7 @@ export const containerFields = [
       },
     },
     {
-      type: 'input',
+      type: 'textarea',
       displayName: '多行输入',
       icon: 'FullScreen',
       options: {
@@ -198,15 +198,15 @@ export const containerFields = [
         hidden: false,
         optionItem: [
           {
-            label: 'a',
+            label: '选项1',
             value: 1,
           },
           {
-            label: 'b',
+            label: '选项2',
             value: 2,
           },
           {
-            label: 'c',
+            label: '选项3',
             value: 3,
           },
         ],

@@ -1,27 +1,28 @@
 <template>
-  <form-item-wrapper :widget="widget" :is-design="isDesign" :parent="parent">
-    <el-input
-      v-model="state.optionsModel.value"
-      placeholder="请输入"
-      @focus="onFocusHandle"
-      @blur="onBlurHandle"
-      @input="onInputHandle"
-      @change="onChangeHandle"
-      @clear="onClearHandle"
-    >
-    </el-input>
-  </form-item-wrapper>
+    <form-item-wrapper :widget="widget" :is-design="isDesign" :parent="parent">
+        <el-date-picker
+            v-model="state.optionsModel.value"
+            type="date"
+            placeholder="请选择日期"
+            @focus="onFocusHandle"
+            @blur="onBlurHandle"
+            @change="onChangeHandle"
+            @visible-change="onVisibleChangeHandle"
+            >
+        </el-date-picker>
+    </form-item-wrapper>
 </template>
 
 <script setup>
 import formItemWrapper from './form-item-wrapper.vue'
 import { reactive, computed} from 'vue'
 import registerEvents from '../registerEvents'
-const emits=defineEmits(['update:options'])
+
 defineOptions({
-  name: 'input-widget',
+  name: 'date-widget',
   mixins: [registerEvents],
 })
+
 const props = defineProps({
   widget: {
     type: Object,
@@ -41,6 +42,8 @@ const props = defineProps({
   },
 })
 
+const emits=defineEmits(['update:options'])
+
 const state = reactive({
   optionsModel: computed({
     get() {
@@ -51,5 +54,4 @@ const state = reactive({
     },
   }),
 })
-
 </script>
