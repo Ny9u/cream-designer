@@ -501,29 +501,29 @@ export const containerFields = [
         filterable: false, // 可搜索选项
         optionItem: [
           {
-            label: 'a',
+            label: '选项A',
             value: 1,
+          },
+          {
+            label: '选项B',
+            value: 2,
             children: [
               {
-                label: 'a-1',
+                label: '选项1',
                 value: 4,
               },
             ],
           },
           {
-            label: 'b',
-            value: 2,
-          },
-          {
-            label: 'c',
+            label: '选项C',
             value: 3,
             children: [
               {
-                label: 'c-1',
+                label: '选项1',
                 value: 5,
                 children: [
                   {
-                    label: 'c-1-1',
+                    label: '选项一',
                     value: 6,
                   },
                 ],

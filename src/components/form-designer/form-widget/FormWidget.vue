@@ -31,9 +31,10 @@ import { inject, computed, reactive ,onMounted } from 'vue'
 import draggable from 'vuedraggable'
 import { getWidgetName } from '@/utils/tool'
 import FieldComponents from './field-widget/index'
+
 defineOptions({
   components: {
-    ...FieldComponents,
+    ...FieldComponents
   },
 })
 const designer = inject('designer')

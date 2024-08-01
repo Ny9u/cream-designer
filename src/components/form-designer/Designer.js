@@ -10,6 +10,7 @@ import { ElMessage } from 'element-plus'
 import { MoveWidgetCommand } from './command/MoveWidgetCommand'
 import { CopyWidgetToContainerCommand } from './command/CopyWidgetToContainerCommand'
 import { RemoveWidgetCommand } from './command/RemoveWidgetCommand'
+import { MoveWidgetFromAToBContainerCommand } from './command/MoveWidgetFromAToBContainerCommand'
 
 export class Designer {
   constructor(option) {
@@ -143,6 +144,20 @@ export class Designer {
         this.selectedWidget,//选中的物料
         this.widgetMap,//物料映射关系
       )
+    )
+  }
+  // 从一个容器中移动物料去另一个容器
+  moveWidgetFromAToBContainer(e, BContainer) {
+    const { oldIndex, newIndex } = e
+    // 当前选中物料的父容器就是AContainer
+    this.command.execute(
+      new MoveWidgetFromAToBContainerCommand(
+        oldIndex,
+        newIndex,
+        this.parentContainer,
+        BContainer,
+      ),
+      false,
     )
   }
 }  
