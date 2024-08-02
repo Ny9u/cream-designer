@@ -4,6 +4,7 @@
             <el-scrollbar :height="state.scrollHeight">
                 <el-form :model="designer.getSeletedWidgetOptions()">
                     <el-collapse v-model="state.activeCollapse">
+                      <!-- 折叠面板 -->
                       <!-- 遍历普通属性和事件属性 -->
                       <el-collapse-item
                         :key="index"
@@ -35,33 +36,36 @@
         <el-tab-pane label="表单配置" name="second">
             <el-scrollbar>
                 <el-form>
-                     <el-collapse v-model="state.activeCollapse">
-                        <el-collapse-item
-                          :key="index"
-                          v-for="(propertyList, index) in state.formPropertyLists"
-                          :title="propertyList.name"
-                          :name="index"
-                        >
-                          <div v-for="propKey in propertyList.propertys" :key="propKey">
-                            <component
-                              :is="getEditorName(propKey)"
-                              :optionModel="designer.formConfig"
-                              :designer="designer"
-                              @editEventProp="editEventProp"
-                            ></component>
-                          </div>
-                        </el-collapse-item>
-                      </el-collapse>
+                  <el-collapse v-model="state.activeCollapse">
+                    <!-- 折叠面板 -->
+                    <!-- 遍历普通属性和事件属性 -->
+                    <el-collapse-item
+                      :key="index"
+                      v-for="(propertyList, index) in state.formPropertyLists"
+                      :title="propertyList.name"
+                      :name="index"
+                    >
+                    <!--遍历里面的属性,以组件的方式呈现,每个组件都是被form-item包裹的 -->
+                      <div v-for="propKey in propertyList.propertys" :key="propKey">
+                        <component
+                          :is="getEditorName(propKey)"
+                          :optionModel="designer.formConfig"
+                          :designer="designer"
+                          @editEventProp="editEventProp"
+                        ></component>
+                      </div>
+                    </el-collapse-item>
+                  </el-collapse>
                 </el-form>
             </el-scrollbar>
         </el-tab-pane>
     </el-tabs>
 </template>
 <script setup>
-import { inject ,reactive, computed, onMounted} from "vue";
+import { inject ,reactive, computed, onMounted } from "vue";
 import CommonProps from './commonProps/index'
 import EventProps from './eventProps/index'
-import {COMMON_PROPERTIES ,EVENT_PROPERTIES} from './propertyRegister'
+import {COMMON_PROPERTIES ,EVENT_PROPERTIES } from './propertyRegister'
 
 
 const designer=inject('designer')
@@ -77,7 +81,8 @@ const state = reactive({
   optionModel: computed(() => {
     if (state.activeTab === '组件配置') {
       return designer.selectedWidget?.options
-    } else {
+    } 
+    else {//表单配置
       return designer.formConfig
     }
   }),

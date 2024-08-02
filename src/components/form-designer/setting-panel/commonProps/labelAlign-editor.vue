@@ -1,28 +1,33 @@
 <template>
-  <el-form-item label="标签对齐">
-    <el-button-group class="ml-4">
+  <el-form-item label="标签对齐" prop="labelAlign" >
+     <el-radio-group v-model="state.optionModel.labelAlign" class="button">
       <el-button
-        @click="selectStyle(item.value, idx)"
-        size="small"
         v-for="(item, idx) in state.styleList"
+        size="small"
         :key="item.value"
         :type="idx == state.selectedIdx ? 'primary' : ''"
-        >{{ item.label }}</el-button
-      >
-    </el-button-group>
+        @click="selectStyle(item.value, idx)"
+        >
+        {{ item.label }}
+        </el-button>
+    </el-radio-group>
   </el-form-item>
+  
 </template>
 <script setup>
 import { computed, reactive } from 'vue'
+
 defineOptions({
-  name: 'labelAlign-editor'
+  name: 'labelAlign-editor',
 })
+
 const props = defineProps({
   optionModel: {
     type: Object,
-    default: () => {}
-  }
+    default: () => {},
+  },
 })
+
 const state = reactive({
   optionModel: computed(() => props.optionModel),
   styleList: [
@@ -41,9 +46,19 @@ const state = reactive({
   ],
   selectedIdx: 0
 })
-state.selectedIdx = state.styleList.findIndex((item) => item.value === state.optionModel.labelAlign)
-const selectStyle = (pos, idx) => {
-  state.optionModel.labelAlign = pos
-  state.selectedIdx = idx
+
+const selectStyle = (value, idx) => {
+    state.optionModel.labelAlign = value
+    state.selectedIdx = idx
 }
 </script>
+
+<style scoped>
+.button {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap:0;
+}
+
+</style>

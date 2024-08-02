@@ -14,7 +14,9 @@ import { ElMessage } from 'element-plus'
 defineOptions({
   name: 'propName-editor',
 })
+
 const designer = inject('designer')
+
 const props = defineProps({
   optionModel: {
     type: Object,

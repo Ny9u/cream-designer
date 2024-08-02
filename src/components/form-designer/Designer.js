@@ -160,5 +160,10 @@ export class Designer {
       false,
     )
   }
+
+  // 检测是否存在重复的组件名称
+  checkPropName(propName) {
+    return this.widgetMap.has(propName)
+  }
 }  
 
