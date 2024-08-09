@@ -2,7 +2,12 @@
   <form-item-wrapper :widget="widget" :is-design="isDesign" :parent="parent">
     <el-input
       v-model="state.optionsModel.value"
-      placeholder="请输入"
+      :type="widget.options.displayType"
+      :show-password="widget.options.displayType == 'password'"
+      :placeholder="widget.options.placeholder"
+      :readonly="widget.options.readonly"
+      :disabled="options.disabled"
+      :clearable="widget.options.clearable"
       @focus="onFocusHandle"
       @blur="onBlurHandle"
       @input="onInputHandle"

@@ -4,6 +4,7 @@
         <el-color-picker
         v-model="state.optionsModel.value"
         :show-alpha="options.showAlpha"
+        :disabled="options.disabled"
         @change="onChangeHandle"
         >
         </el-color-picker>

@@ -6,6 +6,9 @@
             range-separator="至"
             start-placeholder="开始日期"
             end-placeholder="结束日期"
+            :placeholder="widget.options.placeholder"
+            :readonly="widget.options.readonly"
+            :disabled="options.disabled"
             @change="onChangeHandle"
         >
         </el-date-picker>

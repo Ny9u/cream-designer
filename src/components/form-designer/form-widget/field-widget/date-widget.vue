@@ -3,7 +3,9 @@
         <el-date-picker
             v-model="state.optionsModel.value"
             type="date"
-            placeholder="请选择日期"
+            :placeholder="widget.options.placeholder"
+            :readonly="widget.options.readonly"
+            :disabled="options.disabled"
             @focus="onFocusHandle"
             @blur="onBlurHandle"
             @change="onChangeHandle"

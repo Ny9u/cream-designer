@@ -4,6 +4,7 @@
     v-model="state.optionsModel.value"
     :active-value="options.activeValue"
     :inactive-value="options.inactiveValue"
+    :disabled="options.disabled"
     @change="onChangeHandle"
     >
     </el-switch>

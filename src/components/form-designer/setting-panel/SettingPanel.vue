@@ -18,6 +18,9 @@
                           :key="Math.random() + propKey"
                         >
                           <!-- 当前组件存在该属性才展示对应的属性编辑器 -->
+                          <!-- 外部传入optionModel属性,组件内声明即可使用数据 -->
+                          <!-- 实际上更新的都是designer的数据,通过designer实现两个组件的联动 -->
+                          <!-- 将designer.selectedWidget.options传给子组件的props,子组件通过操作state响应式对象传递数据给父组件,因为props是响应式的 -->
                           <component
                             :key="Math.random() + propKey"
                             v-if="hasEditProp(propKey)"

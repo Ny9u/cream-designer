@@ -1,6 +1,13 @@
 <template>
   <form-item-wrapper :widget="widget" :is-design="isDesign" :parent="parent">
-    <el-button :type="options.type" plain @click="onClickhandle">{{state.optionsModel.name}}</el-button>
+    <el-button 
+    :type="options.type" 
+    plain 
+    @click="onClickhandle"
+    :readonly="widget.options.readonly"
+    :disabled="options.disabled"
+    >
+    {{state.optionsModel.name}}</el-button>
   </form-item-wrapper>
 </template>
 

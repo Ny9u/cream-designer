@@ -6,24 +6,32 @@
       label="选项A" 
       border
       @change="onChangeHandle"
+      :readonly="widget.options.readonly"
+      :disabled="options.disabled"
       ></el-checkbox>
       <el-checkbox 
       v-model="state.optionsModel.value" 
       label="选项B" 
       border
       @change="onChangeHandle"
+      :readonly="widget.options.readonly"
+      :disabled="options.disabled"
       ></el-checkbox>
       <el-checkbox 
       v-model="state.optionsModel.value" 
       label="选项C" 
       border
       @change="onChangeHandle"
+      :readonly="widget.options.readonly"
+      :disabled="options.disabled"
       ></el-checkbox>
       <el-checkbox 
       v-model="state.optionsModel.value" 
       label="选项D" 
       border
       @change="onChangeHandle"
+      :readonly="widget.options.readonly"
+      :disabled="options.disabled"
       ></el-checkbox>
     </div>
   </form-item-wrapper>

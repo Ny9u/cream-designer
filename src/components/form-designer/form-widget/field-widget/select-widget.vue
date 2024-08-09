@@ -2,7 +2,11 @@
     <form-item-wrapper :widget="widget" :is-design="isDesign" :parent="parent">
         <el-select 
         v-model="state.optionsModel.value" 
-        filterable placeholder="请选择"
+        :placeholder="widget.options.placeholder"
+        :readonly="widget.options.readonly"
+        :disabled="options.disabled"
+        :clearable="widget.options.clearable"
+        :multiple="widget.options.multiple"
         @focus="onFocusHandle"
         @blur="onBlurHandle"
         @clear="onClearHandle"

@@ -4,6 +4,7 @@
     v-model="state.optionsModel.value"
     show-text
     :texts="array"
+    :disabled="options.disabled"
     @change="onChangeHandle"
     >
     </el-rate>

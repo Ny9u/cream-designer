@@ -7,6 +7,7 @@
     multiple
     :on-success="onSuccessHandle"
     :before-upload="onbeforeunloadHandle"
+    :disabled="options.disabled"
     >
     <img src="@/assets/upload.svg" alt="上传">
     <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>

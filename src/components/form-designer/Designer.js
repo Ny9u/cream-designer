@@ -77,7 +77,7 @@ export class Designer {
   selectWidget(widget, index) {
     this.selectedWidget = widget
     index !== null && index !== undefined && (this.selectedWidget.index = index)
-    window.dispatchEvent(new CustomEvent('select_widget'))//发送select_widget事件,会触发clearwidgetchioce
+    window.dispatchEvent(new CustomEvent('select_widget'))//发送select_widget事件,会触发clearwidgetchoice
   }
   // 获取表单数据
   getJSON() {

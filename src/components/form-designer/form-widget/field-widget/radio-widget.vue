@@ -2,6 +2,8 @@
   <form-item-wrapper :widget="widget" :is-design="isDesign" :parent="parent">
     <el-radio-group 
     v-model="state.optionsModel.value" 
+    :readonly="widget.options.readonly"
+    :disabled="options.disabled"
     @change="onChangeHandle"
     class="radio-group"
     >
