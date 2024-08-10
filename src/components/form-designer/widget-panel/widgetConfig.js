@@ -115,15 +115,15 @@ export const containerFields = [
         // 特有属性-------------------------
         optionItem: [
           {
-            label: 'a',
+            label: '选项1',
             value: 1,
           },
           {
-            label: 'b',
+            label: '选项2',
             value: 2,
           },
           {
-            label: 'c',
+            label: '选项3',
             value: 3,
           },
         ],
@@ -154,16 +154,20 @@ export const containerFields = [
         // 特有属性-------------------------
         optionItem: [
           {
-            label: 'a',
+            label: '选项1',
             value: 1,
           },
           {
-            label: 'b',
+            label: '选项2',
             value: 2,
           },
           {
-            label: 'c',
+            label: '选项3',
             value: 3,
+          },
+          {
+            label: '选项4',
+            value: 4,
           },
         ],
         hidden: false,
@@ -241,6 +245,20 @@ export const containerFields = [
         clearable: true,
         hidden: false,
         format: 'HH:mm:ss',
+        optionItem: [
+          {
+            label: 'HH:mm:ss',
+            value: 'HH:mm:ss'
+          },
+          {
+            label: 'hh:mm:ss',
+            value: 'hh:mm:ss'
+          },
+          {
+            label: 'HH时mm分ss秒',
+            value: 'HH时mm分ss秒'
+          },
+        ],
         onChange: '',
         onBlur: '',
         onFocus: '',
@@ -270,6 +288,20 @@ export const containerFields = [
         clearable: true,
         hidden: false,
         format: 'HH:mm:ss',
+        optionItem: [
+          {
+            label: 'HH:mm:ss',
+            value: 'HH:mm:ss'
+          },
+          {
+            label: 'hh:mm:ss',
+            value: 'hh:mm:ss'
+          },
+          {
+            label: 'HH时mm分ss秒',
+            value: 'HH时mm分ss秒'
+          },
+        ],
         rangeSeparator: '至',
         onChange: '',
         onBlur: '',
@@ -300,6 +332,20 @@ export const containerFields = [
         clearable: true,
         hidden: false,
         format: 'YYYY-MM-DD',
+        optionItem: [
+          {
+            label: 'YYYY-MM-DD',
+            value: 'YYYY-MM-DD'
+          },
+          {
+            label: 'YYYY/MM/DD',
+            value: 'YYYY/MM/DD'
+          },
+          {
+            label: 'YYYY年MM月DD日',
+            value: 'YYYY年MM月DD日'
+          },
+        ],
         onChange: '',
         onBlur: '',
         onFocus: '',
@@ -331,6 +377,20 @@ export const containerFields = [
         clearable: true,
         hidden: false,
         format: 'YYYY/MM/DD', // TODO: 该组件好像无法动态format，后续看看如何解决
+        optionItem: [
+          {
+            label: 'YYYY-MM-DD',
+            value: 'YYYY-MM-DD'
+          },
+          {
+            label: 'YYYY/MM/DD',
+            value: 'YYYY/MM/DD'
+          },
+          {
+            label: 'YYYY年MM月DD日',
+            value: 'YYYY年MM月DD日'
+          },
+        ],
         rangeSeparator: '至',
         onChange: '',
       },

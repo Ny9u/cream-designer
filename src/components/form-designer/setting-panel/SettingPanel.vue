@@ -1,6 +1,6 @@
 <template>
-    <el-tabs v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane label="组件配置" name="first">
+    <el-tabs v-model="state.activeTab" @tab-click="handleClick">
+        <el-tab-pane label="组件配置" name="组件配置">
             <el-scrollbar :height="state.scrollHeight">
                 <el-form :model="designer.getSeletedWidgetOptions()">
                     <el-collapse v-model="state.activeCollapse">
@@ -36,7 +36,7 @@
                 </el-form>
             </el-scrollbar>
         </el-tab-pane>
-        <el-tab-pane label="表单配置" name="second">
+        <el-tab-pane label="表单配置" name="表单配置">
             <el-scrollbar>
                 <el-form>
                   <el-collapse v-model="state.activeCollapse">
@@ -69,7 +69,6 @@ import { inject ,reactive, computed, onMounted } from "vue";
 import CommonProps from './commonProps/index'
 import EventProps from './eventProps/index'
 import {COMMON_PROPERTIES ,EVENT_PROPERTIES } from './propertyRegister'
-
 
 const designer=inject('designer')
 

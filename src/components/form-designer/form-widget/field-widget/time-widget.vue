@@ -8,6 +8,7 @@
             :placeholder="widget.options.placeholder"
             :readonly="widget.options.readonly"
             :disabled="options.disabled"
+            :format="widget.options.format"
             @focus="onFocusHandle"
             @blur="onBlurHandle"
             @change="onChangeHandle"

@@ -4,14 +4,19 @@
     v-model="state.optionsModel.value" 
     :readonly="widget.options.readonly"
     :disabled="options.disabled"
+    :size="widget.options.size"
     @change="onChangeHandle"
-    class="radio-group"
     >
         <div>
-            <el-radio label='A' border>选项A</el-radio>
-            <el-radio label='B' border>选项B</el-radio>
-            <el-radio label='C' border>选项C</el-radio>
-            <el-radio label='D' border>选项D</el-radio>
+          <el-radio
+            v-for="item in state.optionsModel.optionItem"
+            :key="item.value"
+            :label="item.value"
+            border
+            class="radio-group"
+          >
+          {{ item.label }}
+          </el-radio>
         </div>
     </el-radio-group>
   </form-item-wrapper>
@@ -60,6 +65,6 @@ const state = reactive({
 
 <style scoped>
 .radio-group{
-    margin-top:5px
+    margin-right:50px
 }
 </style>

@@ -8,6 +8,7 @@
       :readonly="widget.options.readonly"
       :disabled="options.disabled"
       :clearable="widget.options.clearable"
+      :filterable="widget.options.filterable"
       @focus="onFocusHandle"
       @blur="onBlurHandle"
       @input="onInputHandle"

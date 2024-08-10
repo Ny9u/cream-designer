@@ -7,6 +7,8 @@
         :disabled="options.disabled"
         :clearable="widget.options.clearable"
         :multiple="widget.options.multiple"
+        :allow-create="widget.options.allowCreate"
+        :filterable="widget.options.filterable"
         @focus="onFocusHandle"
         @blur="onBlurHandle"
         @clear="onClearHandle"

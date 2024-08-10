@@ -9,6 +9,7 @@
             :placeholder="widget.options.placeholder"
             :readonly="widget.options.readonly"
             :disabled="options.disabled"
+            :format="widget.options.format"
             @change="onChangeHandle"
         >
         </el-date-picker>

@@ -52,4 +52,11 @@ const state = reactive({
     },
   }),
 })
+
+const onClickhandle=()=>{
+  if(state.optionsModel.url)
+  {
+    window.location.href=state.optionsModel.url
+  }
+}
 </script>

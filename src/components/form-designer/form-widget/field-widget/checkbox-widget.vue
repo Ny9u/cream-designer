@@ -1,7 +1,7 @@
 <template>
   <form-item-wrapper :widget="widget" :is-design="isDesign" :parent="parent">
     <div>
-      <el-checkbox 
+      <!-- <el-checkbox 
       v-model="state.optionsModel.value" 
       label="选项A" 
       border
@@ -32,7 +32,25 @@
       @change="onChangeHandle"
       :readonly="widget.options.readonly"
       :disabled="options.disabled"
-      ></el-checkbox>
+      ></el-checkbox> -->
+      <el-checkbox-group
+      v-model="state.optionsModel.value"
+      :disabled="widget.options.disabled"
+      :readonly="widget.options.readonly"
+      :size="widget.options.widgetSize"
+      @change="onChangeHandle"
+    >
+      <el-checkbox
+        v-for="item in state.optionsModel.optionItem"
+        :key="item.value"
+        :label="item.value"
+        border
+        size="medium"
+        class="checkbox-group"
+      >
+        {{ item.label }}
+      </el-checkbox>
+    </el-checkbox-group>
     </div>
   </form-item-wrapper>
 </template>
@@ -80,3 +98,8 @@ const state = reactive({
 })
 </script>
 
+<style scoped>
+.checkbox-group{
+    margin-right:50px
+}
+</style>
