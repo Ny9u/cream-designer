@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label-width="109" label="onRemoveTag">
+  <el-form-item label-width="96" label="onRemoveTag">
     <el-button 
     type="primary" 
     size="default"

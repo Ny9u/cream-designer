@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label-width="70" label="onFocus">
+  <el-form-item label-width="96" label="onFocus">
     <el-button 
     type="primary" 
     size="default"

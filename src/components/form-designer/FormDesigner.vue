@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { provide, reactive,onMounted} from 'vue'
+import { provide, reactive, onMounted }  from 'vue'
 import { Designer } from './Designer'
 import WidgetPanel from './widget-panel/WidgetPanel'
 import FormWidget from './form-widget/FormWidget'

@@ -1,8 +1,8 @@
 <template>
-    <el-tabs v-model="state.activeTab" @tab-click="handleClick">
+    <el-tabs v-model="state.activeTab" @tab-click="handleClick" style="overflow: hidden;">
         <el-tab-pane label="组件配置" name="组件配置">
             <el-scrollbar :height="state.scrollHeight">
-                <el-form :model="designer.getSeletedWidgetOptions()">
+                <el-form :model="designer.getSeletedWidgetOptions()" label-position="left" label-width="96px">
                     <el-collapse v-model="state.activeCollapse">
                       <!-- 折叠面板 -->
                       <!-- 遍历普通属性和事件属性 -->
@@ -12,25 +12,25 @@
                         :title="propertyList.name"
                         :name="index"
                       >
-                        <!-- 遍历拥有的属性 -->
-                        <div
-                          v-for="propKey in propertyList.propertys"
+                      <!-- 遍历拥有的属性 -->
+                      <div
+                        v-for="propKey in propertyList.propertys"
+                        :key="Math.random() + propKey"
+                      >
+                        <!-- 当前组件存在该属性才展示对应的属性编辑器 -->
+                        <!-- 外部传入optionModel属性,组件内声明即可使用数据 -->
+                        <!-- 实际上更新的都是designer的数据,通过designer实现两个组件的联动 -->
+                        <!-- 将designer.selectedWidget.options传给子组件的props,子组件通过操作state响应式对象传递数据给父组件,因为props是响应式的 -->
+                        <component
                           :key="Math.random() + propKey"
-                        >
-                          <!-- 当前组件存在该属性才展示对应的属性编辑器 -->
-                          <!-- 外部传入optionModel属性,组件内声明即可使用数据 -->
-                          <!-- 实际上更新的都是designer的数据,通过designer实现两个组件的联动 -->
-                          <!-- 将designer.selectedWidget.options传给子组件的props,子组件通过操作state响应式对象传递数据给父组件,因为props是响应式的 -->
-                          <component
-                            :key="Math.random() + propKey"
-                            v-if="hasEditProp(propKey)"
-                            :is="getEditorName(propKey)"
-                            :optionModel="designer.selectedWidget.options"
-                            :designer="designer"
-                            :widget="designer.selectedWidget"
-                            @editEventProp="editEventProp"
-                          ></component>
-                        </div>
+                          v-if="hasEditProp(propKey)"
+                          :is="getEditorName(propKey)"
+                          :optionModel="designer.selectedWidget.options"
+                          :designer="designer"
+                          :widget="designer.selectedWidget"
+                          @editEventProp="editEventProp"
+                        ></component>
+                      </div>
                       </el-collapse-item>
                     </el-collapse>
                 </el-form>
@@ -38,7 +38,7 @@
         </el-tab-pane>
         <el-tab-pane label="表单配置" name="表单配置">
             <el-scrollbar>
-                <el-form>
+                <el-form label-position="left" label-width="96px">
                   <el-collapse v-model="state.activeCollapse">
                     <!-- 折叠面板 -->
                     <!-- 遍历普通属性和事件属性 -->
@@ -89,7 +89,7 @@ const state = reactive({
     }
   }),
   activeTab: '组件配置',
-  activeCollapse: 0,
+  activeCollapse: [0,1],
   scrollHeight: 0,
   widgetPropertyLists: [
     {

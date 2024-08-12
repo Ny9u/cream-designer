@@ -4,7 +4,7 @@ export const containerFields = [
       type: 'grid',
       displayName: '栅格',
       category: 'container',
-      icon: 'Setting',
+      icon: 'full-screen',
       cols: [],
       options: {
         propName: '',
@@ -36,7 +36,7 @@ export const containerFields = [
     {
       type: 'input',
       displayName: '单行输入',
-      icon: 'House',
+      icon: 'edit',
       options: {
         propName: '', // 字段名称
         defaultValue: '', // 初始值
@@ -66,7 +66,7 @@ export const containerFields = [
     {
       type: 'textarea',
       displayName: '多行输入',
-      icon: 'FullScreen',
+      icon: 'document',
       options: {
         propName: '', // 字段名称
         defaultValue: '', // 初始值
@@ -96,7 +96,7 @@ export const containerFields = [
     {
       type: 'radio',
       displayName: '单选项',
-      icon: 'Loading',
+      icon: 'menu',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
@@ -112,6 +112,7 @@ export const containerFields = [
         widgetSize: 'small',
         size: 'default',
         disabled: false,
+        hidden: false,
         // 特有属性-------------------------
         optionItem: [
           {
@@ -127,15 +128,13 @@ export const containerFields = [
             value: 3,
           },
         ],
-        hidden: false,
         onChange: '',
       },
     },
     {
       type: 'checkbox',
       displayName: '多选项',
-      icon: 'Link',
-  
+      icon: 'grid',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
@@ -151,6 +150,7 @@ export const containerFields = [
         widgetSize: 'small',
         size: 'default',
         disabled: false,
+        hidden: false,
         // 特有属性-------------------------
         optionItem: [
           {
@@ -170,14 +170,13 @@ export const containerFields = [
             value: 4,
           },
         ],
-        hidden: false,
         onChange: '',
       },
     },
     {
       type: 'select',
       displayName: '下拉选项',
-      icon: 'Service',
+      icon: 'more',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
@@ -225,7 +224,7 @@ export const containerFields = [
     {
       type: 'time',
       displayName: '时间',
-      icon: 'Pointer',
+      icon: 'watch',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
@@ -268,7 +267,7 @@ export const containerFields = [
     {
       type: 'time-range',
       displayName: '时间范围',
-      icon: 'Star',
+      icon: 'alarm-clock',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
@@ -312,7 +311,7 @@ export const containerFields = [
     {
       type: 'date',
       displayName: '日期',
-      icon: 'Notification',
+      icon: 'sunrise',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
@@ -357,7 +356,7 @@ export const containerFields = [
     {
       type: 'date-range',
       displayName: '日期范围',
-      icon: 'Connection',
+      icon: 'data-board',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
@@ -398,11 +397,11 @@ export const containerFields = [
     {
       type: 'button',
       displayName: '按钮',
-      icon: 'ChatDotRound',
+      icon: 'help',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
-        name: 'button',
+        name: '按钮',
         value: '', // 绑定值
         widgetSize: 'small',
         size: 'default',
@@ -419,7 +418,7 @@ export const containerFields = [
     {
       type: 'rate',
       displayName: '评分',
-      icon: 'Setting',
+      icon: 'trophy',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
@@ -442,7 +441,7 @@ export const containerFields = [
     {
       type: 'switch',
       displayName: '开关',
-      icon: 'Clock',
+      icon: 'switch-button',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
@@ -465,7 +464,7 @@ export const containerFields = [
     {
       type: 'color-picker',
       displayName: '取色器',
-      icon: 'Position',
+      icon: 'brush',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
@@ -486,7 +485,7 @@ export const containerFields = [
     {
       type: 'divider',
       displayName: '分割线',
-      icon: 'Discount',
+      icon: 'guide',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
@@ -502,7 +501,7 @@ export const containerFields = [
     {
       type: 'text',
       displayName: '纯文字',
-      icon: 'Odometer',
+      icon: 'document-add',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
@@ -515,7 +514,7 @@ export const containerFields = [
     {
       type: 'upload',
       displayName: '上传器',
-      icon: 'ChatSquare',
+      icon: 'upload',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
@@ -524,7 +523,7 @@ export const containerFields = [
         disabled: false,
         hidden: false,
         // 特有属性-------------------------
-        action: '',
+        address: '',
         showFileList: false,
         onbeforeunload: '',
         onSuccess: '',
@@ -537,7 +536,7 @@ export const containerFields = [
     {
       type: 'cascader',
       displayName: '级联选择',
-      icon: 'ChatDotRound',
+      icon: 'film',
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称

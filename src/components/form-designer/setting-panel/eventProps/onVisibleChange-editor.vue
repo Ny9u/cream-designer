@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label-width="127" label="onVisibleChange">
+  <el-form-item label-width="96" label="onVisibleChange">
     <el-button 
     type="primary" 
     size="default"

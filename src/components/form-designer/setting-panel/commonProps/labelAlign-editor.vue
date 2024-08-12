@@ -1,6 +1,6 @@
 <template>
   <el-form-item label="标签对齐" prop="labelAlign" >
-     <el-radio-group v-model="state.optionModel.labelAlign" class="button">
+     <el-button-group v-model="state.optionModel.labelAlign">
       <el-button
         v-for="(item, idx) in state.styleList"
         size="small"
@@ -10,7 +10,7 @@
         >
         {{ item.label }}
         </el-button>
-    </el-radio-group>
+    </el-button-group>
   </el-form-item>
   
 </template>
@@ -54,11 +54,5 @@ const selectStyle = (value, idx) => {
 </script>
 
 <style scoped>
-.button {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
-  gap:0;
-}
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <el-form-item>
+  <el-form-item label-width="0">
     <el-divider content-position="center">选项设置</el-divider>
     <el-radio-group v-model="state.optionModel.value">
       <div

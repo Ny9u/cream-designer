@@ -31,20 +31,20 @@ export const COMMON_PROPERTIES = [
     // --------------栅格属性------------------
     'colHeight', // 统一列高
     'gutter', // 栅格间距
-    'span', // 栅格占比
-    'offset', // 栅格左侧间隔格数
+    'span', // 栅格长度
+    'offset', // 整体偏移
     'pull', // 栅格列左偏移
     'push', // 栅格列右偏移
     // --------------按钮特有属性-----------------------
     'type',
-    'plain',
-    'text',
-    'bg',
-    'link',
-    'round',
-    'circle',
-    'color',
-    'dark',
+    'plain',//未实现
+    'text',//未实现
+    'bg',//未实现
+    'link',//未实现
+    'round',//未实现
+    'circle',//未实现
+    'color',//未实现
+    'dark',//未实现
     // 分割线属性-----------------------
     'borderStyle',
     'contentPosition',
@@ -52,7 +52,7 @@ export const COMMON_PROPERTIES = [
     // 按钮属性
     'name',
     // 上传器属性----------------
-    'action',
+    'address',
     // --------------表单特有属性-----------------------
     'formDataName', // 数据对象名称
     'formRefName', // 表单引用名称
