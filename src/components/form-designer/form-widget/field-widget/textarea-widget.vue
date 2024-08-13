@@ -3,7 +3,7 @@
     <el-input
         v-model="state.optionsModel.value"
         type="textarea"
-        :rows="2"
+        :rows="3"
         :placeholder="widget.options.placeholder"
         :readonly="widget.options.readonly"
         :disabled="options.disabled"

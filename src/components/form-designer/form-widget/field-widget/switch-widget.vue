@@ -6,8 +6,7 @@
     :inactive-value="options.inactiveValue"
     :disabled="options.disabled"
     @change="onChangeHandle"
-    >
-    </el-switch>
+    />
   </form-item-wrapper>
 </template>
 
@@ -54,4 +53,7 @@ const state = reactive({
   }),
 })
 
+const onChangeHandle = () => {
+  //state.optionsModel.switchValue  =  state.optionsModel.value
+}
 </script>

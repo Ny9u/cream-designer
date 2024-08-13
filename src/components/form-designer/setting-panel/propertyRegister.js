@@ -58,7 +58,22 @@ export const COMMON_PROPERTIES = [
     'formRefName', // 表单引用名称
     'formRulesName', // 表单规则名称
     'baseURL', // 表单请求地址
-    'formLabelWidth'
+    'formLabelWidth',
+    'gridOptionItem',
+    // --------------时间属性------------------
+    'timeFormat',
+    // --------------时间范围属性------------------
+    'timeRangeFormat',
+    // --------------日期属性------------------
+    'dateFormat',
+    // --------------日期范围属性------------------
+    'dateRangeFormat',
+    // --------------评分属性------------------
+    'rateValue',
+    // --------------颜色选择器属性------------------
+    'colorPickerValue',
+    //--------------开关属性------------------
+    'switchValue',
   ]
   
   export const EVENT_PROPERTIES = [

@@ -1,5 +1,5 @@
 <template>
-  <div class="form-designer" style="width: 100%">
+  <div class="form-designer">
     <el-row justify="space-between">
         <el-col :span="4">
             <widget-panel></widget-panel>
@@ -44,12 +44,9 @@ onMounted(() => {
 
 </script>
 <style scoped>
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
-  }
-  
+.form-designer{
+  overflow: hidden; 
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
 </style>

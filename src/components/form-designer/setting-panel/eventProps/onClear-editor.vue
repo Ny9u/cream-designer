@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label-width="96" label="onClear">
+  <el-form-item label-width="126" label="onClear">
     <el-button 
     type="primary" 
     size="default"

@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label-width="96" label="onBlur">
+  <el-form-item label-width="126" label="onBlur">
     <el-button 
     type="primary" 
     size="default"

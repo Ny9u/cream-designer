@@ -5,13 +5,13 @@ export const containerFields = [
       displayName: '栅格',
       category: 'container',
       icon: 'full-screen',
-      cols: [],
+      cols: [],//存储栅格列
       options: {
         propName: '',
-        hidden: false,
         colHeight: '50', // 统一列高度
-        optionItem: [],
         gutter: 0, //列间距
+        hidden: false,
+        gridOptionItem: [],
         justify: '',
         align: '',
       },
@@ -24,7 +24,7 @@ export const containerFields = [
       widgetList: [],
       options: {
         propName: '',
-        span: 12,
+        span: 12,//宽度
         offset: 0,
         push: 0,
         pull: 0,
@@ -56,6 +56,7 @@ export const containerFields = [
         disabled: false,
         clearable: false,
         hidden: false,
+        // 事件属性-------------------------
         onBlur: '',
         onFocus: '',
         onChange: '',
@@ -86,6 +87,7 @@ export const containerFields = [
         disabled: false,
         clearable: false,
         hidden: false,
+        // 事件属性-------------------------
         onBlur: '',
         onFocus: '',
         onChange: '',
@@ -128,6 +130,7 @@ export const containerFields = [
             value: 3,
           },
         ],
+        // 事件属性-------------------------
         onChange: '',
       },
     },
@@ -170,6 +173,7 @@ export const containerFields = [
             value: 4,
           },
         ],
+        // 事件属性-------------------------
         onChange: '',
       },
     },
@@ -213,12 +217,34 @@ export const containerFields = [
             value: 3,
           },
         ],
+        // 事件属性-------------------------
         onBlur: '',
         onFocus: '',
         onChange: '',
         onClear: '',
         onVisibleChange: '',
         onRemoveTag: '',
+      },
+    },
+    {
+      type: 'button',
+      displayName: '按钮',
+      icon: 'help',
+      options: {
+        // 通用属性-------------------------
+        propName: '', // 字段名称
+        name: '按钮',
+        value: '', // 绑定值
+        widgetSize: 'small',
+        size: 'default',
+        type: 'primary',
+        disabled: false,
+        readonly: false,
+        hidden: false,
+        onClick: '',
+        url: '',
+        // 特有属性
+        loading: false,
       },
     },
     {
@@ -243,8 +269,8 @@ export const containerFields = [
         // 特有属性-------------------------
         clearable: true,
         hidden: false,
-        format: 'HH:mm:ss',
-        optionItem: [
+        timeFormat: 'HH:mm:ss',
+        timeOption: [
           {
             label: 'HH:mm:ss',
             value: 'HH:mm:ss'
@@ -258,6 +284,7 @@ export const containerFields = [
             value: 'HH时mm分ss秒'
           },
         ],
+        // 事件属性-------------------------
         onChange: '',
         onBlur: '',
         onFocus: '',
@@ -283,11 +310,12 @@ export const containerFields = [
         size: 'default',
         disabled: false,
         placeholder: '请选择',
-        // 特有属性-------------------------
         clearable: true,
         hidden: false,
-        format: 'HH:mm:ss',
-        optionItem: [
+        // 特有属性-------------------------
+        timeRangeFormat: 'HH:mm:ss',
+        rangeSeparator: '至',
+        timeRangeOption: [
           {
             label: 'HH:mm:ss',
             value: 'HH:mm:ss'
@@ -301,7 +329,7 @@ export const containerFields = [
             value: 'HH时mm分ss秒'
           },
         ],
-        rangeSeparator: '至',
+        // 事件属性-------------------------
         onChange: '',
         onBlur: '',
         onFocus: '',
@@ -330,8 +358,8 @@ export const containerFields = [
         // 特有属性-------------------------
         clearable: true,
         hidden: false,
-        format: 'YYYY-MM-DD',
-        optionItem: [
+        dateFormat: 'YYYY-MM-DD',
+        dateOption: [
           {
             label: 'YYYY-MM-DD',
             value: 'YYYY-MM-DD'
@@ -345,6 +373,7 @@ export const containerFields = [
             value: 'YYYY年MM月DD日'
           },
         ],
+        // 事件属性-------------------------
         onChange: '',
         onBlur: '',
         onFocus: '',
@@ -375,8 +404,9 @@ export const containerFields = [
         // 特有属性-------------------------
         clearable: true,
         hidden: false,
-        format: 'YYYY/MM/DD', // TODO: 该组件好像无法动态format，后续看看如何解决
-        optionItem: [
+        dateRangeFormat: 'YYYY/MM/DD', // TODO: 该组件好像无法动态format，后续看看如何解决
+        rangeSeparator: '至',
+        dateRangeOption: [
           {
             label: 'YYYY-MM-DD',
             value: 'YYYY-MM-DD'
@@ -390,29 +420,8 @@ export const containerFields = [
             value: 'YYYY年MM月DD日'
           },
         ],
-        rangeSeparator: '至',
+        // 事件属性-------------------------
         onChange: '',
-      },
-    },
-    {
-      type: 'button',
-      displayName: '按钮',
-      icon: 'help',
-      options: {
-        // 通用属性-------------------------
-        propName: '', // 字段名称
-        name: '按钮',
-        value: '', // 绑定值
-        widgetSize: 'small',
-        size: 'default',
-        type: 'primary',
-        disabled: false,
-        readonly: false,
-        hidden: false,
-        onClick: '',
-        url: '',
-        // 特有属性
-        loading: false,
       },
     },
     {
@@ -422,7 +431,8 @@ export const containerFields = [
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
-        defaultValue: 0, // 初始值
+        //defaultValue: 0, // 初始值
+        rateValue:0,//为了属性组件唯一而设置的属性,代替defaultValue
         label: 'rate',
         labelAlign: 'left',
         labelWidth: '80',
@@ -435,7 +445,7 @@ export const containerFields = [
         disabled: false,
         hidden: false,
         // 特有属性-------------------------
-        allowHalf: true, // 允许半星
+        //allowHalf: true, // 允许半星
       },
     },
     {
@@ -445,7 +455,8 @@ export const containerFields = [
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
-        defaultValue: '', // 初始值
+        //defaultValue: '', // 初始值
+        switchValue:'',
         label: 'switch',
         labelAlign: 'left',
         labelWidth: '80',
@@ -468,7 +479,8 @@ export const containerFields = [
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
-        defaultValue: '', // 初始值
+        //defaultValue: '', // 初始值
+        colorPickerValue: '',
         label: 'color-picker',
         labelAlign: 'left',
         labelWidth: '80',

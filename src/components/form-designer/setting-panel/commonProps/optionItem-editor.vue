@@ -127,6 +127,7 @@ const importItemHandle = (content) =>{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin-left: 5px;
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <el-form-item label-width="96" label="onInput">
+  <el-form-item label-width="126" label="onInput">
     <el-button 
     type="primary" 
     size="default"
