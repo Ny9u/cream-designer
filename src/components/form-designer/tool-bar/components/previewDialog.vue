@@ -5,9 +5,9 @@
             <FormRender :form-JSON="designer"></FormRender>
             <template #footer>
                 <div>
-                    <el-button type="plain" @click="getFormJson">获取数据</el-button>
-                    <el-button type="plain" @click="resetForm">重置表单</el-button>
-                    <el-button type="plain" @click="state.showPreviewDialog=false">关闭</el-button>
+                    <el-button type="primary" @click="getFormJson">获取数据</el-button>
+                    <el-button type="primary" @click="resetForm">重置表单</el-button>
+                    <el-button @click="state.showPreviewDialog=false">关闭</el-button>
                 </div>
             </template>
         </el-dialog>

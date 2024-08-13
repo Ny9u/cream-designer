@@ -13,8 +13,8 @@
         ></CodeEditor>
         <template #footer>
             <div>
-                <el-button type="plain" @click="saveImport">确认</el-button>
-                <el-button type="plain" @click="close">关闭</el-button>
+                <el-button type="primary" @click="saveImport">确认</el-button>
+                <el-button @click="close">关闭</el-button>
             </div>
         </template>
     </el-dialog>

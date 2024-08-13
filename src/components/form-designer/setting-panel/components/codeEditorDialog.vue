@@ -1,74 +1,76 @@
 <template>
-  <el-dialog v-model="state.showCodeDialog" :title="title" width="80%">
-    <!-- 用来提示使用者，编写代码时只用编写方法体 -->
-    <el-alert type="info" :closable="false" :title="state.preInfo"></el-alert>
-    <code-editor mode="javascript" v-model="state.code"></code-editor>
-    <el-alert type="info" :closable="false" title="}"></el-alert>
+  <el-dialog v-model="state.showCodeDialog" wirth="80%" :title="props.title" @close="onCancel">
+    <CodeEditor
+    mode="javascript"
+    v-model="state.code"
+    />
     <template #footer>
-      <div class="dialog-footer text-center">
-        <el-button type="primary" @click="onSureHandle">确定</el-button>
-        <el-button @click="onCloseHandle">关闭</el-button>
-      </div>
+      <el-button type="primary" @click="onSure">确 定</el-button>
+      <el-button @click="onCancel">取 消</el-button>
     </template>
   </el-dialog>
 </template>
-<script setup>
-import { computed, reactive } from 'vue'
 
-import CodeEditor from '@/components/code-editor/index.vue'
+<script setup>
+import {reactive, computed} from 'vue'
+import CodeEditor from '@/components/code-editor/index'
+
 const props = defineProps({
-  showCodeDialog: {//是否打开代码框
+  showCodeDialog: {
     type: Boolean,
     default: false
-  },
-  designer: {
-    type: Object,
-    default: () => {}
-  },
-  title: {
-    type: String,
-    default: ''
   },
   code: {
     type: String,
     default: ''
   },
-  tip: {
+  title:{
     type: String,
     default: ''
+  },
+  tip:{
+    type: String,
+    default: ''
+  },
+  designer:{
+    type: Object,
+    default: () => {}
   }
 })
 const emits = defineEmits(['update:showCodeDialog', 'update:code'])
 
 const state = reactive({
-  showCodeDialog: computed({//是否打开代码框
-    get() {
+  showCodeDialog: computed({
+    get(){
       return props.showCodeDialog
     },
-    set(v) {
-      emits('update:showCodeDialog', v)
+    set(value){
+      emits('update:showCodeDialog', value)
     }
   }),
   code: computed({
-    get() {
+    get(){
       return props.code
     },
-    set(v) {
-      emits('update:code', v)
+    set(value){
+      emits('update:code', value)
     }
   }),
-  preInfo: computed(() => {
-    return `${props.designer.getSeletedWidgetOptions().propName}${props.tip}` //TODO: 表单事件不应该是当前选中物料的属性名作为前缀，有空再改
-  })
 })
-const onSureHandle = () => {
-  state.showCodeDialog = false
-  props.designer.eventChange()//借助designer实现代码保存
-}
-// eslint-disable-next-line vue/no-setup-props-destructure
-const oCode = props.code
-const onCloseHandle = () => {
-  state.code = oCode//恢复默认代码
+const originCode = state.code
+
+const onCancel= () => {
+  state.code = originCode
   state.showCodeDialog = false
 }
+
+const onSure = () => {
+  //props.designer.eventChange()
+  state.showCodeDialog = false
+}
+
 </script>
+
+<style>
+
+</style>

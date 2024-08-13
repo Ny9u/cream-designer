@@ -10,7 +10,7 @@ export const containerFields = [
         propName: '',
         colHeight: '50', // 统一列高度
         gutter: 0, //列间距
-        hidden: false,
+        //hidden: false,
         gridOptionItem: [],
         justify: '',
         align: '',
@@ -552,7 +552,7 @@ export const containerFields = [
       options: {
         // 通用属性-------------------------
         propName: '', // 字段名称
-        defaultValue: '', // 初始值
+        //defaultValue: '', // 初始值
         label: 'cascader',
         labelAlign: 'left',
         labelWidth: '80',
@@ -570,7 +570,7 @@ export const containerFields = [
         clearable: true,
         multiple: false,
         filterable: false, // 可搜索选项
-        optionItem: [
+        cascaderOption: [
           {
             label: '选项A',
             value: 1,

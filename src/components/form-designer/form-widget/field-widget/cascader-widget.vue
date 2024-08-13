@@ -3,7 +3,7 @@
      <el-cascader
       v-model="state.optionsModel.value"
       :props="state.cascaderProps"
-      :options="widget.options.optionItem"
+      :options="widget.options.cascaderOption"
       :placeholder="widget.options.placeholder"
       :readonly="widget.options.readonly"
       :disabled="options.disabled"

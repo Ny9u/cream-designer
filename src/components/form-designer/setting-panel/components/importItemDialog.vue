@@ -5,15 +5,15 @@
   v-model="state.dialogVisible"
   >
   <el-input
-    :rows="10"
+    :rows="16"
     placeholder="格式：每行输入一条label,value"
     type="textarea"
     v-model="state.content"
   />
   <template #footer>
     <div>
-      <el-button @click="onCancel">取 消</el-button>
       <el-button type="primary" @click="onSure">导 入</el-button>
+      <el-button @click="onCancel">取 消</el-button>
     </div>
   </template>
 </el-dialog>

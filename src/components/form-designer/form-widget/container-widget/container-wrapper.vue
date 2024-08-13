@@ -5,7 +5,6 @@
       widget == designer.selectedWidget && isDesign ? 'active' : 'unactive',
     ]"
   >
-
     <slot></slot>
     <div class="active" v-if="widget == designer.selectedWidget && isDesign">
         <div class="active-title">

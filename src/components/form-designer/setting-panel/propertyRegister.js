@@ -74,6 +74,8 @@ export const COMMON_PROPERTIES = [
     'colorPickerValue',
     //--------------开关属性------------------
     'switchValue',
+    // --------------级联选择器属性------------------
+    'cascaderOption',
   ]
   
   export const EVENT_PROPERTIES = [

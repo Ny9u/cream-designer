@@ -4,6 +4,7 @@
       size="small"
       type="text"
       v-model="state.optionModel.propName"
+      :disabled="true"
       @change="checkPropName"
     ></el-input>
   </el-form-item>

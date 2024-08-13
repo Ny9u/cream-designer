@@ -8,9 +8,9 @@
     ></code-editor>
     <template #footer>
       <div>
-        <el-button type="plain" @click="copyJSONtoClipboard">复制文本</el-button>
-        <el-button type="plain" @click="exportAsFile">保存为文件</el-button>
-        <el-button type="plain" @click="state.showCodeDialog = false">关闭</el-button>
+        <el-button type="primary" @click="copyJSONtoClipboard">复制文本</el-button>
+        <el-button type="primary" @click="exportAsFile">保存为文件</el-button>
+        <el-button @click="state.showCodeDialog = false">关闭</el-button>
       </div>
     </template>
   </el-dialog>

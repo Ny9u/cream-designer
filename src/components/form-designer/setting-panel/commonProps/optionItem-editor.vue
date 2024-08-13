@@ -17,7 +17,6 @@
       <span @click="insetItem">增加选项</span>
       <span @click="importItem">导入选项</span>
     </div>
-    <!-- 级联选择的属性编辑未完成 -->
      <ImportItemDialog
       @importItem="importItemHandle"
       :content="state.content"

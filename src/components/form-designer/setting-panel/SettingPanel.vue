@@ -63,13 +63,24 @@
             </el-scrollbar>
         </el-tab-pane>
     </el-tabs>
+    <!-- 事件属性编辑器, editEventProp事件时弹出-->
+    <!-- 需要用v-if验证showCodeDialog是否存在,否则会因为访问到空内存报错 -->
+    <div v-if="state.showCodeDialog">
+    <CodeEditorDialog
+      v-model:code="state.optionModel[state.codeDialogTitle]"
+      v-model:showCodeDialog="state.showCodeDialog"
+      :title="state.codeDialogTitle"
+      :tip="state.codeDialogTip"
+      :designer="designer"
+    />
+    </div>
 </template>
 <script setup>
 import { inject ,reactive, computed, onMounted } from "vue";
 import CommonProps from './commonProps/index'
 import EventProps from './eventProps/index'
 import {COMMON_PROPERTIES ,EVENT_PROPERTIES } from './propertyRegister'
-
+import CodeEditorDialog from './components/codeEditorDialog.vue'
 const designer=inject('designer')
 
 defineOptions({
@@ -111,7 +122,7 @@ const state = reactive({
       propertys: [],
     },
   ],
-  showCodeDialog: false, // 事件属性展示编辑器
+  showCodeDialog: false, // 展示事件属性编辑器
   codeDialogTitle: '',
   codeDialogTip: '',
 })
@@ -169,6 +180,12 @@ const getEditorName = (name) => {
   const hasComponent = CommonProps[editorName] ?? EventProps[editorName]
   if (hasComponent) return editorName
   return name + '-editor'
+}
+//响应editEventProp时间
+const editEventProp = ({ title, tip }) => {
+  state.showCodeDialog = true
+  state.codeDialogTitle = title
+  state.codeDialogTip = tip
 }
 </script>
 

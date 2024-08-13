@@ -1,9 +1,9 @@
 <template>
   <div>
-    <el-divider content-position="center">栅格选项设置</el-divider>
+    <el-divider content-position="center">栅格列设置</el-divider>
     <div>
         <el-form-item
-          :label="`栅格宽度${idx + 1}`"
+          :label="`栅格列宽度${idx + 1}`"
           v-for="(item,idx) in widget.cols"
           :key="item.id"
         >
@@ -39,6 +39,8 @@ const addItem = () => {
 
 </script>
 
-<style>
-
+<style scoped>
+.action {
+  color:#409EFF
+}
 </style>

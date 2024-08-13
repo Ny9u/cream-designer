@@ -1,49 +1,57 @@
 <template>
-  <el-dialog v-model="state.showDialog" title="导入选项" width="80%">
-    <code-editor
-      ref="codeEditorRef"
-      :placeholder="state.placeholder"
-      mode="javascript"
-      v-model="state.content"
-    ></code-editor>
-    <template #footer>
-      <div class="dialog-footer text-center">
-        <el-button type="primary" @click="onSureHandle">确定</el-button>
-        <el-button @click="onCloseHandle">关闭</el-button>
-      </div>
-    </template>
-  </el-dialog>
+  <el-dialog
+  title="导入选项"
+  width="80%"
+  v-model="state.dialogVisible"
+  >
+ <CodeEditor
+  ref="codeEditorRef"
+  mode="javascript"
+  v-model="state.content"
+  :placeholder="state.placeholder"
+ />
+  <template #footer>
+    <div>
+      <el-button type="primary" @click="onSure">导 入</el-button>
+      <el-button @click="onCancel">取 消</el-button>
+    </div>
+  </template>
+</el-dialog>
 </template>
+
 <script setup>
-import { computed, reactive, ref } from 'vue'
-import CodeEditor from '@/components/code-editor/index.vue'
+import { reactive, computed, ref} from 'vue'
+import CodeEditor from '@/components/code-editor/index'
 import { ElMessage } from 'element-plus'
-const props = defineProps({
-  showImportItemDialog: {
+const props= defineProps({
+ showImportDialog: {
     type: Boolean,
-    default: false
+    default:false,
   },
-  content: {
-    type: String,
-    default: ''
+  content:{
+    type:String,
+    default:''
   }
 })
-const emits = defineEmits(['update:showImportItemDialog', 'importItem'])
 
-const state = reactive({
-  showDialog: computed({
-    get() {
-      if (props.showImportItemDialog) {
-        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-        state.content = props.content
+const codeEditorRef = ref(null)
+
+const emits=defineEmits(['update:showImportDialog','importItem'])
+
+const state=reactive({
+  dialogVisible:computed({
+    get(){
+      if(props.showImportDialog)
+      {
+        state.content=props.content
       }
-      return props.showImportItemDialog
+      return props.showImportDialog
     },
-    set(v) {
-      emits('update:showImportItemDialog', v)
+    set(v){
+      emits('update:showImportDialog', v)
     }
   }),
-  content: '',
+  content:'',
   placeholder: `
    样例：[{
     "label": "A",
@@ -55,8 +63,13 @@ const state = reactive({
    }]
   `
 })
-const codeEditorRef = ref(null)
-const onSureHandle = () => {
+
+const onCancel=()=>{
+  state.dialogVisible=false
+}
+
+const onSure=()=>{
+  //格式检查
   const codeHints = codeEditorRef.value.getEditorAnnotations()
   if (codeHints && codeHints.length > 0) {
     for (let i of codeHints) {
@@ -69,11 +82,11 @@ const onSureHandle = () => {
       }
     }
   }
-  state.showDialog = false
-  emits('importItem', state.content)
-}
-
-const onCloseHandle = () => {
-  state.showDialog = false
+  emits('importItem',state.content)
+  state.dialogVisible=false
 }
 </script>
+
+<style>
+
+</style>

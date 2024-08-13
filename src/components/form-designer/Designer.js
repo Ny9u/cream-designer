@@ -11,7 +11,8 @@ import { MoveWidgetCommand } from './command/MoveWidgetCommand'
 import { CopyWidgetToContainerCommand } from './command/CopyWidgetToContainerCommand'
 import { RemoveWidgetCommand } from './command/RemoveWidgetCommand'
 import { MoveWidgetFromAToBContainerCommand } from './command/MoveWidgetFromAToBContainerCommand'
-
+import { AddGridItemCommand } from './command/AddGridItemCommand'
+import { EventPropChangeCommand } from './command/EventPropChangeCommand'
 export class Designer {
   constructor(option) {
     this.initDesigner(option)
@@ -165,5 +166,17 @@ export class Designer {
   checkPropName(propName) {
     return this.widgetMap.has(propName)
   }
+
+  //往栅格中添加列
+  addItem(grid) {
+    this.command.execute(
+      new AddGridItemCommand(grid.cols,this.widgetMap),
+    )
+  }
+  //编辑事件代码
+  eventChange(){
+    this.command.execute(new EventPropChangeCommand(), false, false)
+  }
+  
 }  
 
