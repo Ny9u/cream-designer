@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div>
-      <el-button type="primary" plain :disabled="!canUndo" @click="Undo">
+      <el-button type="primary" plain :disabled="!state.canUndo" @click="Undo">
         撤销
       </el-button>
-      <el-button class="margin-40" type="primary" plain :disabled="!canRedo" @click="Redo">
+      <el-button type="primary" plain :disabled="!state.canRedo" @click="Redo">
         重做
       </el-button>
     </div>
@@ -16,6 +16,7 @@
       <el-button type="primary" plain @click="showExportSFCCode">导出代码</el-button>
       <el-button type="primary" plain @click="showCreateSFC">生成SFC</el-button>
     </div>
+  </div>
      <!-- 预览效果 -->
     <div v-if="state.showPreviewDialog">
       <PreviewDialog
@@ -40,20 +41,20 @@
         v-model:showCodeDialog="state.showCodeDialog" 
       ></ExportJsonDialog>
     </div>
-  </div>
 </template>
 <script setup>
-import { computed, inject ,reactive} from "vue";
+import { computed, inject ,reactive } from "vue";
 import PreviewDialog from './components/previewDialog.vue'
 import ImportJsonDialog from './components/importJsonDialog.vue'
 import ExportJsonDialog from './components/showCodeDialog.vue'
 import {generateCode} from "@/utils/codeGenerator.js";
 import {sfcGenerator} from '@/utils/sfcGenerator.js'
 
+const designer = inject("designer");
 
 const state=reactive({
-  canUndo:computed(()=>{return designer.commandManage.canUndo()}),
-  canRedo:computed(()=>{return designer.commandManage.canRedo()}),
+  canUndo:computed(()=> designer.command.canUndo()),
+  canRedo:computed(()=> designer.command.canRedo()),
   showPreviewDialog: false,
   showImportJsonDialog: false,
   showCodeDialog: false,
@@ -62,8 +63,6 @@ const state=reactive({
   userWorker: true,
   code: ''
 })
-
-const designer = inject("designer");
 
 const Undo=()=>{
   designer.command.undo()
@@ -94,7 +93,7 @@ const showImportJsonDialog=()=>{
 }
 
 const importJSONHandle = (v) => {
-  const data = JSON.parse(v)//解析json字符串
+  const data = JSON.parse(v)//字符串解析为json字符串
   designer.addWidgetListByJSON(data)
 }
 
@@ -163,7 +162,5 @@ const showCreateSFC=()=> {
   justify-content: space-between;
   padding: 10px;
 }
-.margin-40{
-  margin-right: 40px;
-}
+
 </style>

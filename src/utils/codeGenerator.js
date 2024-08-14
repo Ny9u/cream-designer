@@ -1,7 +1,7 @@
 export const generateCode = function (formJson) {
     const formJsonStr = JSON.stringify(formJson, null, '  ')
   
-    return `<template>
+    return ` <template>
     <div>
       <form-render :form-json="formJson" ref="formRenderRef">
       </form-render>

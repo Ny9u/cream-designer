@@ -9,7 +9,10 @@ export class ClearWidgetCommand{
         this.originSelectedWidget = selectedWidget//参数
     }
     execute(){
-        this.widgetList.splice(0,widgetList.length)
+        //console.log(this.widgetList)
+        this.widgetList.splice(0,this.widgetList.length)
+        //this.widgetList=[]
+        //console.log(this.widgetList)
         this.selectWidget(null)
         this.widgetMap.clear()
     }

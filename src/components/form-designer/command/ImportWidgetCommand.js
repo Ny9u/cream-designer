@@ -1,6 +1,6 @@
 import { deepClone } from '@/utils/tool'
 import { Widget } from '../Widget'
-// 导入JSON命令
+// 导入物料命令
 export class ImportWidgetCommand {
   constructor(json, data, widgetMap) {
     this.widgetList = data.widgetList

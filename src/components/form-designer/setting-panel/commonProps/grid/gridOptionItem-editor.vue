@@ -10,7 +10,7 @@
         <el-input-number v-model="item.options.span" size="small" :min="0" :max="24"/>
         </el-form-item>
     </div>
-    <div class="action">
+    <div class="action primary-color">
       <span @click="addItem">增加栅格列</span>
     </div>
   </div>
@@ -40,7 +40,4 @@ const addItem = () => {
 </script>
 
 <style scoped>
-.action {
-  color:#409EFF
-}
 </style>

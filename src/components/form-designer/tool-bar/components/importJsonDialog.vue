@@ -47,16 +47,11 @@ const state=reactive({
         }
     }),
     json: '',
-    placeholder: `
-    样例：[{
+    placeholder: `样例：[{
         "label": "A",
         "value": "a",
-        "children": [{
-            "label": "A-1",
-            "value": "a-1"
-            }] 
-        }]
-    `
+        "children": [{ "label": "A-1", "value": "a-1"}] 
+        }]`
 })
 
 const codeEditorRef = ref(null)

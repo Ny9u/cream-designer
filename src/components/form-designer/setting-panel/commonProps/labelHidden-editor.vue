@@ -2,9 +2,7 @@
   <el-form-item label="标签隐藏" prop="labelHidden">
     <el-switch
     v-model="state.optionModel.labelHidden"
-    active-color="#13ce66"
-    inactive-color="#ff4949">
-    </el-switch>
+    />
   </el-form-item>
 </template>
 

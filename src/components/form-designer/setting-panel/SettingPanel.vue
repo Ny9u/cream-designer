@@ -1,5 +1,5 @@
 <template>
-    <el-tabs v-model="state.activeTab" @tab-click="handleClick" style="overflow: hidden;">
+    <el-tabs v-model="state.activeTab" style="overflow: hidden;">
         <el-tab-pane label="组件配置" name="组件配置">
             <el-scrollbar :height="state.scrollHeight">
                 <el-form :model="designer.getSeletedWidgetOptions()" label-position="left" label-width="96px">

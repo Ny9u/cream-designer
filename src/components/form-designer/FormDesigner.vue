@@ -31,22 +31,17 @@ const state = reactive({
 })
 provide('designer', state.designer)
 
-window.addEventListener('beforeunload', () => {
-   localStorage.setItem('formJSON', JSON.stringify(state.designer))
- })
-onMounted(() => {
-   if (localStorage.getItem('formJSON')) {
-     const formJSON = JSON.parse(localStorage.getItem('formJSON') ?? '{}')
-     state.designer.widgetList = formJSON.widgetList
-     state.designer.formConfig = formJSON.formConfig
-   }
-})
+// window.addEventListener('beforeunload', () => {
+//    localStorage.setItem('formJSON', JSON.stringify(state.designer))
+//  })
+// onMounted(() => {
+//    if (localStorage.getItem('widgetList')) {
+//      state.designer.widgetList = JSON.parse(localStorage.getItem('widgetList') ?? '[]')
+//      state.designer.formConfig = JSON.parse(localStorage.getItem('formConfig') ?? '{}')
+//    }
+// })
 
 </script>
 <style scoped>
-.form-designer{
-  overflow: hidden; 
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
-}
+
 </style>

@@ -67,7 +67,5 @@ const state = reactive({
 </script>
 
 <style scoped>
-:deep(.el-cascader) {
-  width: 100%;
-}
+
 </style>

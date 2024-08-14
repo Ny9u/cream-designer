@@ -8,7 +8,7 @@
         :options="widget.options.cascaderOption"
         />
     </div>
-    <div class="action">
+    <div class="action primary-color">
       <span @click="importItem">增加选项</span>
       <span @click="state.optionModel.value=''">重置选中结果</span>
     </div>
@@ -71,6 +71,5 @@ const importItemHandle=(content)=>{
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
-    color:#409EFF;
 }
 </style>

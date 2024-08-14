@@ -1,4 +1,6 @@
 // 命令管理
+//通过命令管理实例统一管理命令/执行命令,给命令套上一层外壳,使得可以记录执行了那些命令
+//方便实现操作撤销和重做等功能
 export class CommandManage {
     constructor(designer) {
       this.undoList = []

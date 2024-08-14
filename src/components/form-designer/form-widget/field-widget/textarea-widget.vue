@@ -26,7 +26,7 @@ const emits=defineEmits(['update:options'])
 
 defineOptions({
     name: 'textarea-widget',
-    mixin: [registerEvents]
+    mixins: [registerEvents]
 })
 const props = defineProps({
     widget: {
