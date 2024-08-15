@@ -1,5 +1,6 @@
 <template>
   <div class="form-render">
+    <!-- 表单预览就是将form-designer设计好的组件引入并重新渲染一次 -->
     <el-form>
       <template
         v-for="widget in formJSON.widgetList"
@@ -18,16 +19,20 @@
 </template>
 <script setup>
 import { getRenderName } from '@/utils/tool'
-import FieldComponents from '@/components/form-designer/form-widget/FormWidget'
+import FieldComponents from '@/components/form-designer/form-widget/field-widget/index'
+//import ContainerComponents from './container/index'
 import { onMounted, provide, reactive } from 'vue'
 import { Designer } from '@/components/form-designer/Designer'
 import useRegisterEvent from '@/utils/useRegisterEvent'
 defineOptions({
   components: {
     ...FieldComponents,
+    //...ContainerComponents
   },
 })
 const props = defineProps({
+  //这里传入的formJSON实际上是form-designer的designer
+  //这里分为两个designer,即每一个表单都有一个designer
   formJSON: {
     type: Object,
     default: () => {
@@ -44,13 +49,14 @@ const state = reactive({
     formConfig: props.formJSON.formConfig,
   }),
 })
-provide('designer', state.designer) // 必须也生成一个designer实例供render组件单独使用时调用api，
+provide('designer', state.designer) // 生成一个designer实例供render组件单独使用时调用api
+
 defineExpose({
   designer: state.designer
 })
 
 const { onFormMounted } = useRegisterEvent(state.designer, props.formJSON)
 onMounted(() => {
-  onFormMounted()//表单挂载时执行的事件,实际上无操作
+  onFormMounted()//表单挂载时执行的事件,实际上操作为空
 })
 </script>

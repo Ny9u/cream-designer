@@ -95,7 +95,7 @@ export class Designer {
   //清空物料列表
   resetForm()
   {
-    this.widgetList.forEach((item) => item.resetValue())//item就是widget类实例对象
+    this.widgetList.forEach((item) => item.options.value='')//item就是widget类实例对象
   }
   // 导入JSON
   addWidgetListByJSON(json) {
@@ -179,4 +179,3 @@ export class Designer {
   }
   
 }  
-

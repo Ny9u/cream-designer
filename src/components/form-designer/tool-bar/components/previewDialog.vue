@@ -2,7 +2,7 @@
     <div>
         <el-dialog v-model="state.showPreviewDialog" title="表单预览" wirth="80%"> 
             <!-- 表单渲染 -->
-            <FormRender :form-JSON="designer"></FormRender>
+            <FormRender :formJSON="designer"/>
             <template #footer>
                 <div>
                     <el-button type="primary" @click="getFormJson">获取数据</el-button>
@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { reactive, computed} from "vue"
+import { reactive, computed } from "vue"
 import ShowCodeDialog from "./showCodeDialog.vue"
 import FormRender from "@/components/form-render/index.vue"
 
@@ -52,13 +52,13 @@ const state = reactive({
 })
 
 const getFormJson = () => {
-    state.JSON= props.designer.getJSON()
-    state.title='获取数据',
-    state.showCodeDialog=true
+  state.JSON= props.designer.getJSON()
+  state.title='获取数据',
+  state.showCodeDialog=true
 }
 
 const resetForm = () => {
-    props.designer.resetForm()
+  props.designer.resetForm()
 }
 
 </script>
