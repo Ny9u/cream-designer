@@ -42,7 +42,7 @@ export class Designer {
     }
   }
   //默认就是往工作区中添加
-  addNewWidgetToContainer(container = this) {
+  addNewWidgetToContainer(container = this,index) {
     // 如果添加的是容器物料
     if (this.cloneWidget.category === 'container') {
       this.command.execute(//借助command这个命令管理实例,执行execute实际上是调用传入参数的execute
@@ -59,6 +59,7 @@ export class Designer {
             this.cloneWidget,
             container.widgetList,
             this.widgetMap,
+            index
           ),
         )
     } 
@@ -92,10 +93,29 @@ export class Designer {
   getSeletedWidgetOptions() {
     return this.selectedWidget?.options ?? {}
   }
-  //清空物料列表
+  //
+  resetValue(item)
+  {
+    if(item.type==='grid-col')
+    {
+      item.widgetList.forEach(widget => {
+        widget.options.value=''
+      })
+    }
+    else item.options.value=''//item就是widget类实例对象
+  }
+  //清空物料内容
   resetForm()
   {
-    this.widgetList.forEach((item) => item.options.value='')//item就是widget类实例对象
+    this.widgetList.forEach((item) => {
+      if(item.type==='grid' && item.cols)
+      {
+        item.cols.forEach(col => {
+        this.resetValue(col)
+        })
+      }
+      else this.resetValue(item)
+    })
   }
   // 导入JSON
   addWidgetListByJSON(json) {

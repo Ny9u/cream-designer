@@ -24,21 +24,19 @@
       handle=".active-drag"
       :move="checkMove"
     >
-      <template #item="{element: subWidget, index: idx}">
-        <div class="move">
-          <component
-            v-model:options="subWidget.options"
-            :is="getWidgetName(subWidget.type)"
-            :widget="subWidget"
-            :designer="designer"
-            :parent="widget"
-            :parent-index="index"
-            :key="subWidget.options.propName"
-            :isDesign="isDesign"
-            @click.stop="selectWidget(subWidget, idx)"
-          ></component>
-        </div>
-      </template>
+      <div class="move" v-for="(subWidget, index) in widget.widgetList" :key="index">
+        <component
+          v-model:options="widget.options"
+          :is="getWidgetName(subWidget.type)"
+          :widget="subWidget"
+          :designer="designer"
+          :parent="widget"
+          :parent-index="index"
+          :key="subWidget.options.propName"
+          :isDesign="isDesign"
+          @click.stop="selectWidget(subWidget, idx)"
+        ></component>
+      </div>
     </draggable>
     <!-- 此处被选中时显示工具 -->
     <div class="active" v-if="widget == designer.selectedWidget && isDesign">
@@ -163,7 +161,7 @@ const removeWidget = () => {
     border: 2px solid #409eff;
   }
   &.unactive {
-    border: 1px dashed rgba(0, 0, 0, 0.5);
+    border: 1px dashed black;
   }
 }
 .draggable {

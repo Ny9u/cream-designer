@@ -50,7 +50,7 @@ import ExportJsonDialog from './components/showCodeDialog.vue'
 import {generateCode} from "@/utils/codeGenerator.js";
 import {sfcGenerator} from '@/utils/sfcGenerator.js'
 
-const designer = inject("designer");
+const designer = inject('designer');
 
 const state=reactive({
   canUndo:computed(()=> designer.command.canUndo()),

@@ -20,14 +20,14 @@
 <script setup>
 import { getRenderName } from '@/utils/tool'
 import FieldComponents from '@/components/form-designer/form-widget/field-widget/index'
-//import ContainerComponents from './container/index'
+import ContainerComponents from './container/index'
 import { onMounted, provide, reactive } from 'vue'
 import { Designer } from '@/components/form-designer/Designer'
 import useRegisterEvent from '@/utils/useRegisterEvent'
 defineOptions({
   components: {
     ...FieldComponents,
-    //...ContainerComponents
+    ...ContainerComponents
   },
 })
 const props = defineProps({
@@ -52,7 +52,7 @@ const state = reactive({
 provide('designer', state.designer) // 生成一个designer实例供render组件单独使用时调用api
 
 defineExpose({
-  designer: state.designer
+  designer: state.designer//专门用于渲染栏格列内的组件
 })
 
 const { onFormMounted } = useRegisterEvent(state.designer, props.formJSON)

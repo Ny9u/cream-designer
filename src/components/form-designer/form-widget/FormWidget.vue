@@ -6,8 +6,13 @@
           class="draggable"
           :list="designer.widgetList"
           :move="checkMove"
+          :sort="true"
+          item-key="id"
+          v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 300 }"
           @add="(e) => onDragAdd(e)"
           @update="(e) => onDragUpdate(e)"
+          @end="(e) => onDragEnd"
+          handle=".active-drag"
         >
         <template #item="{ element: widget, index }">
             <component
@@ -49,12 +54,16 @@ const checkMove = (e) => {
 
 const onDragAdd = (e) => {
   const { newIndex } = e
-  designer.addNewWidgetToContainer()//参数是要加入的容器
+  designer.addNewWidgetToContainer(undefined,newIndex)
   designer.selectedWidget.index = newIndex
 }
 
 const onDragUpdate = (e) => {
   designer.dragUpdate(e)
+}
+
+const onDragEnd = (e) => {
+  console.log(e)
 }
 
 const selectWidget = (widget, index) => {
