@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { provide, reactive, onMounted }  from 'vue'
+import { provide, reactive }  from 'vue'
 import { Designer } from './Designer'
 import WidgetPanel from './widget-panel/WidgetPanel'
 import FormWidget from './form-widget/FormWidget'
@@ -31,15 +31,11 @@ const state = reactive({
 })
 provide('designer', state.designer)
 
-// window.addEventListener('beforeunload', () => {
-//    localStorage.setItem('formJSON', JSON.stringify(state.designer))
-//  })
-// onMounted(() => {
-//    if (localStorage.getItem('widgetList')) {
-//      state.designer.widgetList = JSON.parse(localStorage.getItem('widgetList') ?? '[]')
-//      state.designer.formConfig = JSON.parse(localStorage.getItem('formConfig') ?? '{}')
-//    }
-// })
+window.addEventListener('beforeunload', () => {
+  localStorage.removeItem('widgetList')
+  localStorage.removeItem('formConfig')
+})
+
 
 </script>
 <style scoped>

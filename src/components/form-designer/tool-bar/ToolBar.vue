@@ -47,14 +47,14 @@ import { computed, inject ,reactive } from "vue";
 import PreviewDialog from './components/previewDialog.vue'
 import ImportJsonDialog from './components/importJsonDialog.vue'
 import ExportJsonDialog from './components/showCodeDialog.vue'
-import {generateCode} from "@/utils/codeGenerator.js";
-import {sfcGenerator} from '@/utils/sfcGenerator.js'
+import { generateCode } from "@/utils/codeGenerator.js";
+import { sfcGenerator } from '@/utils/sfcGenerator.js'
 
 const designer = inject('designer');
 
 const state=reactive({
-  canUndo:computed(()=> designer.command.canUndo()),
-  canRedo:computed(()=> designer.command.canRedo()),
+  canUndo:computed(()=> designer.command.canUndo),
+  canRedo:computed(()=> designer.command.canRedo),
   showPreviewDialog: false,
   showImportJsonDialog: false,
   showCodeDialog: false,
@@ -66,10 +66,14 @@ const state=reactive({
 
 const Undo=()=>{
   designer.command.undo()
+  localStorage.setItem('widgetList', JSON.stringify(designer.widgetList))
+  localStorage.setItem('formConfig', JSON.stringify(designer.formConfig))
 }
 
 const Redo=()=>{
   designer.command.redo();
+  localStorage.setItem('widgetList', JSON.stringify(designer.widgetList))
+  localStorage.setItem('formConfig', JSON.stringify(designer.formConfig))
 }
 
 const clearForm=()=>{

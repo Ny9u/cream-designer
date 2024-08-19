@@ -1,5 +1,5 @@
 import { setMapValueByJSON,deepClone} from '@/utils/tool'
-import { CommandManage } from './command/CommandManage'
+import { useCommandManageStore } from '@/store/useCommandManageStore'
 import { FormConfig } from './FormConfig'
 import { AddContainerWidgetCommand } from './command/AddContainerWidgetCommand'
 import { AddWidgetCommand } from './command/AddWidgetCommand'
@@ -13,13 +13,14 @@ import { RemoveWidgetCommand } from './command/RemoveWidgetCommand'
 import { MoveWidgetFromAToBContainerCommand } from './command/MoveWidgetFromAToBContainerCommand'
 import { AddGridItemCommand } from './command/AddGridItemCommand'
 import { EventPropChangeCommand } from './command/EventPropChangeCommand'
+
 export class Designer {
   constructor(option) {
     this.initDesigner(option)
   }
   initDesigner(option) {
       this.widgetMap = setMapValueByJSON(new Map(), option.widgetList) // key:propName val: widget 用于快速查询物料
-      this.command = new CommandManage(this) // 命令管理实例
+      this.command = useCommandManageStore() // 命令管理
       this.widgetList = option.widgetList // 物料集合
       this.cloneWidget = null // 拖拽时生成的临时物料(克隆的组件)
       this.multipleWidget = new Set() // 多选拖拽时生成的临时物料集合
@@ -52,6 +53,8 @@ export class Designer {
           this.widgetMap,
         ),
       )
+      localStorage.setItem('widgetList', JSON.stringify(this.widgetList))
+      localStorage.setItem('formConfig', JSON.stringify(this.formConfig))
     }
     else if (this.multipleWidget.size <= 1) {//单选
         this.command.execute(
@@ -62,6 +65,8 @@ export class Designer {
             index
           ),
         )
+        localStorage.setItem('widgetList', JSON.stringify(this.widgetList))
+        localStorage.setItem('formConfig', JSON.stringify(this.formConfig))
     } 
   }
   //清空所有物料
@@ -74,6 +79,8 @@ export class Designer {
         this.widgetMap,//物料映射关系
       )
     )
+    localStorage.setItem('widgetList', JSON.stringify(this.widgetList))
+    localStorage.setItem('formConfig', JSON.stringify(this.formConfig))
   }
   // 当且仅当通过鼠标点击选择物料时，会得到draggable传来的index，表明它在父容器中的位置，用这个属性来控制选择兄弟物料
   selectWidget(widget, index) {
@@ -126,6 +133,8 @@ export class Designer {
         this.widgetMap,
       ),
     )
+    localStorage.setItem('widgetList', JSON.stringify(this.widgetList))
+    localStorage.setItem('formConfig', JSON.stringify(this.formConfig))
     this.selectWidgetByContainerIndex(this, 0)
   }
   // 选择物料
@@ -148,12 +157,16 @@ export class Designer {
       new MoveWidgetCommand(this.widgetList, oldIndex, newIndex),
       false,
     )
+    localStorage.setItem('widgetList', JSON.stringify(this.widgetList))
+    localStorage.setItem('formConfig', JSON.stringify(this.formConfig))
   }
   //复制一个相同的组件到容器
   copyWidgetToContainer(widget, widgetList) {
     this.command.execute(
       new CopyWidgetToContainerCommand(widget, widgetList, this.widgetMap),
     )
+    localStorage.setItem('widgetList', JSON.stringify(this.widgetList))
+    localStorage.setItem('formConfig', JSON.stringify(this.formConfig))
   }
   //从容器中删除组件
   removeWidget(widgetList=this.widgetList)
@@ -166,6 +179,8 @@ export class Designer {
         this.widgetMap,//物料映射关系
       )
     )
+    localStorage.setItem('widgetList', JSON.stringify(this.widgetList))
+    localStorage.setItem('formConfig', JSON.stringify(this.formConfig))
   }
   // 从一个容器中移动物料去另一个容器
   moveWidgetFromAToBContainer(e, BContainer) {
@@ -180,6 +195,8 @@ export class Designer {
       ),
       false,
     )
+    localStorage.setItem('widgetList', JSON.stringify(this.widgetList))
+    localStorage.setItem('formConfig', JSON.stringify(this.formConfig))
   }
 
   // 检测是否存在重复的组件名称
@@ -192,10 +209,14 @@ export class Designer {
     this.command.execute(
       new AddGridItemCommand(grid.cols,this.widgetMap),
     )
+    localStorage.setItem('widgetList', JSON.stringify(this.widgetList))
+    localStorage.setItem('formConfig', JSON.stringify(this.formConfig))
   }
   //编辑事件代码
   eventChange(){
     this.command.execute(new EventPropChangeCommand(), false, false)
+    localStorage.setItem('widgetList', JSON.stringify(this.widgetList))
+    localStorage.setItem('formConfig', JSON.stringify(this.formConfig))
   }
   
 }  
