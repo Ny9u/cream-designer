@@ -1,12 +1,6 @@
-export class EventPropChangeCommand{
-    constructor(){
-      
-    }
+export class EventPropChangeCommand {
+	constructor() {}
 
-    execute(){
-      
-    }
-    undo(){
-        
-    }
+	execute() {}
+	undo() {}
 }

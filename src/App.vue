@@ -1,16 +1,16 @@
 <template>
-  <formDesigner/>
+	<formDesigner />
 </template>
 
-<script >
-import formDesigner from './components/form-designer/FormDesigner.vue'
+<script>
+	import formDesigner from './components/form-designer/FormDesigner.vue'
 
-export default {
-  name: 'App',
-  components: {
-    formDesigner
-  }
-}
+	export default {
+		name: 'App',
+		components: {
+			formDesigner,
+		},
+	}
 </script>
 
 <style scoped></style>
