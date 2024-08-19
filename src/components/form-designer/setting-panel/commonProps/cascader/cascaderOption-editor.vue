@@ -49,7 +49,7 @@ const state=reactive({
         },
         set(v)
         {
-            //console.log(v)
+            console.log(v)
         }
     })
 })

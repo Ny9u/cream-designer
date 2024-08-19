@@ -103,7 +103,7 @@ const onDragStart = (widget) => {
     designer.parentContainer = widget
 }
 
-const onDragEnd = (e) => {
+const onDragEnd = () => {
   designer.parentContainer = designer
 }
 

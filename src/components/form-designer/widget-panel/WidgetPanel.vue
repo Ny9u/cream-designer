@@ -179,7 +179,7 @@ const multipleChoice = (e, widget) => {
     }
   }
 }
-const updateClonePos = () => {
+const updateClonePos = (e) => {
   // 拖动时更新元素位置
   const { clientX, clientY } = e//鼠标对于视口的坐标
   state.cloneSel.forEach((item) => {

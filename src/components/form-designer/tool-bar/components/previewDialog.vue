@@ -24,7 +24,7 @@
 <script setup>
 import { reactive, computed } from "vue"
 import ShowCodeDialog from "./showCodeDialog.vue"
-import FormRender from "@/components/form-render/index.vue"
+import FormRender from "@/components/form-render/formRender.vue"
 
 const props = defineProps({
   showPreviewDialog: {
