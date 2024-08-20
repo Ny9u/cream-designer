@@ -1,4 +1,5 @@
 <template>
+	<top-nav></top-nav>
 	<div class="form-designer">
 		<el-row justify="space-between">
 			<el-col :span="4">
@@ -22,6 +23,7 @@
 	import FormWidget from './form-widget/FormWidget'
 	import ToolBar from './tool-bar/ToolBar'
 	import SettingPanel from './setting-panel/SettingPanel'
+	import TopNav from './top-nav/TopNav'
 
 	const state = reactive({
 		designer: new Designer({

@@ -80,7 +80,7 @@
 	</div>
 </template>
 <script setup>
-	import { inject, reactive, computed, onMounted } from 'vue'
+	import { inject, reactive, computed, onMounted ,onBeforeUnmount} from 'vue'
 	import CommonProps from './commonProps/index'
 	import EventProps from './eventProps/index'
 	import { COMMON_PROPERTIES, EVENT_PROPERTIES } from './propertyRegister'
@@ -137,6 +137,10 @@
 		computedHeight()
 	})
 
+	onBeforeUnmount(() => {
+		window.removeEventListener('select_widget', getPropertys)
+		window.removeEventListener('resize', computedHeight)
+	})
 	const addEventsListener = () => {
 		// 监听选中物料事件触发，用于更新当前物料的属性编辑器
 		window.addEventListener('select_widget', getPropertys)
@@ -190,6 +194,7 @@
 		state.codeDialogTitle = title
 		state.codeDialogTip = tip
 	}
+
 </script>
 
 <style lang="less" scoped></style>

@@ -99,7 +99,7 @@
 </template>
 
 <script setup>
-	import { reactive, inject, onMounted } from 'vue'
+	import { reactive, inject, onMounted ,onBeforeUnmount} from 'vue'
 	import draggable from 'vuedraggable'
 	import { containerFields, basicFields, advanceFields } from './widgetConfig'
 
@@ -211,6 +211,12 @@
 	}
 	onMounted(() => {
 		addEventsListener()
+	})
+
+	onBeforeUnmount(() => {
+		window.removeEventListener('select_widget', clearWidgetChoice)
+		window.removeEventListener('click', choiceOver)
+		window.removeEventListener('mousemove', updateClonePos)
 	})
 </script>
 
