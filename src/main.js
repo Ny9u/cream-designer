@@ -9,7 +9,6 @@ import ContainerWidgets from '@/components/form-designer/form-widget/container-w
 import ContainerRender from '@/components/form-render/container/index'
 import { createPinia } from 'pinia'
 
-
 const pinia = createPinia()
 const app = createApp(App)
 

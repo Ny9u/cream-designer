@@ -99,7 +99,7 @@
 </template>
 
 <script setup>
-	import { reactive, inject, onMounted ,onBeforeUnmount} from 'vue'
+	import { reactive, inject, onMounted, onBeforeUnmount } from 'vue'
 	import draggable from 'vuedraggable'
 	import { containerFields, basicFields, advanceFields } from './widgetConfig'
 

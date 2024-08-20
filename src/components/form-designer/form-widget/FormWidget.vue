@@ -36,11 +36,11 @@
 	</div>
 </template>
 <script setup>
-	import { inject, computed, reactive, onMounted , onBeforeUnmount } from 'vue'
+	import { inject, computed, reactive, onMounted, onBeforeUnmount } from 'vue'
 	import draggable from 'vuedraggable'
 	import { getWidgetName } from '@/utils/tool'
 	import FieldComponents from './field-widget/index'
-	import {eventBus } from '@/utils/eventBus'
+	import { eventBus } from '@/utils/eventBus'
 	defineOptions({
 		components: {
 			...FieldComponents,
@@ -79,14 +79,14 @@
 	}
 
 	const changeDark = (dark) => {
-		const widget = document.querySelector('.form-widget');
-		const body = document.querySelector('.form-body');
+		const widget = document.querySelector('.form-widget')
+		const body = document.querySelector('.form-body')
 		if (dark) {
-			widget.style.background = '#18222c';
-			body.style.background = '#121212';
+			widget.style.background = '#18222c'
+			body.style.background = '#121212'
 		} else {
-			widget.style.background = '#f5f1f1';
-			body.style.background = '#fff';
+			widget.style.background = '#f5f1f1'
+			body.style.background = '#fff'
 		}
 	}
 	onMounted(() => {
@@ -94,10 +94,10 @@
 		eventBus.on('changeDark', changeDark)
 	})
 
-	onBeforeUnmount(()=> {
-		window.removeEventListener('resize', computedHeight)*
-    	eventBus.off('changeDark', changeDark);
-  	})
+	onBeforeUnmount(() => {
+		window.removeEventListener('resize', computedHeight) *
+			eventBus.off('changeDark', changeDark)
+	})
 </script>
 
 <style lang="less" scoped>

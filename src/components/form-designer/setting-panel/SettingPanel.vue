@@ -80,7 +80,7 @@
 	</div>
 </template>
 <script setup>
-	import { inject, reactive, computed, onMounted ,onBeforeUnmount} from 'vue'
+	import { inject, reactive, computed, onMounted, onBeforeUnmount } from 'vue'
 	import CommonProps from './commonProps/index'
 	import EventProps from './eventProps/index'
 	import { COMMON_PROPERTIES, EVENT_PROPERTIES } from './propertyRegister'
@@ -194,7 +194,6 @@
 		state.codeDialogTitle = title
 		state.codeDialogTip = tip
 	}
-
 </script>
 
 <style lang="less" scoped></style>
