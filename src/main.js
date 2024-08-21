@@ -8,17 +8,17 @@ import * as ElementPlusIcons from '@element-plus/icons-vue'
 import ContainerWidgets from '@/components/form-designer/form-widget/container-widget/index'
 import ContainerRender from '@/components/form-render/container/index'
 import { createPinia } from 'pinia'
+export const createApplication = () => {
+	const pinia = createPinia()
+	const app = createApp(App)
 
-const pinia = createPinia()
-const app = createApp(App)
-
-app.use(ElementPlus)
-app.use(ContainerWidgets)
-app.use(ContainerRender)
-app.use(pinia)
-
-for (const [key, component] of Object.entries(ElementPlusIcons)) {
-	app.component(key, component)
+	app.use(ElementPlus)
+	app.use(ContainerWidgets)
+	app.use(ContainerRender)
+	app.use(pinia)
+	// 将所有引入的ui注册为全局组件
+	for (const [key, component] of Object.entries(ElementPlusIcons)) {
+		app.component(key, component)
+	}
+	return { app }
 }
-// 将所有引入的ui注册为全局组件
-app.mount('#app')
