@@ -2,3 +2,10 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run format
+
+if [ $? -ne 0 ]; then
+  echo "Prettier formatting failed."
+  exit 1
+fi
+
+exit 0
