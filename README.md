@@ -1,5 +1,33 @@
-# Vue 3 + Vite
+# Cream-Designer 表单生成器
+#### 一款所见即所得的表单设计器，支持拖拽式生成表单，个性化自定义组件属性✨
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+### 功能一览
+```
+> 拖拽式表单设计模式；
+> 支持实时加载表单；
+> 支持表单复杂交互控制；
+> 支持自定义组件样式；
+> 支持自定义校验逻辑；
+> 可导出Vue组件、Json代码；
+> 未完待续...
+```
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+### 安装依赖
+```
+npm install 
+```
+
+### 开发调试
+```
+npm run dev
+```
+
+### 生产打包
+```
+npm run build
+```
+
+### 服务端渲染
+```
+npm run dev:ssr
+```
