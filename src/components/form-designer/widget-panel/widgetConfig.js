@@ -21,7 +21,7 @@ export const containerFields = [
 		displayName: '栅格列',
 		category: 'container',
 		hidden: true, // 不显示容器元素的子元素
-		widgetList: [],
+		widgetList: [], //嵌套元素列表
 		options: {
 			propName: '',
 			span: 12, //宽度
