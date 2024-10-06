@@ -4,7 +4,9 @@ import { fileURLToPath, URL } from 'node:url'
 import { Plugin as importToCdn ,autoComplete } from 'vite-plugin-cdn-import'
 import { visualizer } from 'rollup-plugin-visualizer';
 
-export default defineConfig({
+export default defineConfig(({command,mode}) => {
+  const isLibBuild = command === 'build' && mode === 'production';
+  return{
   plugins: [
     vue(),
     importToCdn({
@@ -54,14 +56,27 @@ export default defineConfig({
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue']
   },
   build: {
+    lib: isLibBuild ? { 
+      entry: './src/index.js', 
+      name: 'CreamDesigner', 
+      fileName: (format) => `cream-designer.${format}.js`, 
+    }: undefined,
+    outDir: isLibBuild ? 'dist/lib': 'dist', 
     rollupOptions: {
       external: [
-      'vue', 
-      'element-plus', 
-      '@element-plus/icons-vue',
-      'ace-builds',
-      'js-beautify',
-      'vuedraggable'
-    ],}
-  },
+        'vue', 
+        'element-plus', 
+        '@element-plus/icons-vue',
+        'ace-builds',
+        'js-beautify',
+        'vuedraggable'
+      ],
+      output: {
+        globals: {
+          vue: 'Vue',
+        },
+      },
+    },
+  }
+  }
 });
