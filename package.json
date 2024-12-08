@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --open",
-    "build": "vite build",
+    "build": "vite build --mode development",
     "build:lib":"vite build --mode production",
     "dev:client": "vite --open",
     "dev:ssr": "node ./src/server.js",
