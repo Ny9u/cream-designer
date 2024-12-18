@@ -7,5 +7,6 @@ export class FormConfig {
 		this.baseURL = ''
 		this.onFormCreated = ''
 		this.onFormMounted = ''
+		this.onFormSubmit = ''
 	}
 }
