@@ -4,5 +4,8 @@ export class FormConfig {
 		this.formRefName = 'formRef'
 		this.formRulesName = 'formRules'
 		this.formLabelWidth = 80
+		this.baseURL = ''
+		this.onFormCreated = ''
+		this.onFormMounted = ''
 	}
 }
