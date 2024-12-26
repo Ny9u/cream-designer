@@ -15,7 +15,6 @@
 					v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 300 }"
 					@add="(e) => onDragAdd(e)"
 					@update="(e) => onDragUpdate(e)"
-					@end="(e) => onDragEnd"
 					handle=".active-drag"
 				>
 					<template #item="{ element: widget, index }">
@@ -64,10 +63,6 @@
 
 	const onDragUpdate = (e) => {
 		designer.dragUpdate(e)
-	}
-
-	const onDragEnd = (e) => {
-		console.log(e)
 	}
 
 	const selectWidget = (widget, index) => {
