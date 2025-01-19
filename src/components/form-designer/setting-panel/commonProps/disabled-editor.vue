@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="禁用">
+	<el-form-item :label="$t('disabled')">
 		<el-switch v-model="state.optionModel.disabled" />
 	</el-form-item>
 </template>

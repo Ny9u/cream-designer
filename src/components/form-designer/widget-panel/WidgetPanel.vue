@@ -1,8 +1,8 @@
 <template>
-	<div class="widget-panel padding-8">
+	<div class="widget-panel">
 		<el-collapse v-model="state.activeNames">
 			<!-- 容器 -->
-			<el-collapse-item title="容器" name="1">
+			<el-collapse-item :title="$t('container')" name="1">
 				<draggable
 					class="draggable"
 					v-model="containerFields"
@@ -25,7 +25,7 @@
 							<el-icon>
 								<component :is="element.icon" />
 							</el-icon>
-							{{ element.displayName }}
+							{{ $t(element.type) }}
 						</div>
 					</template>
 					<!--每一个小方格 -->
@@ -34,7 +34,7 @@
 			<!--收纳盒-->
 
 			<!-- 基础物料 -->
-			<el-collapse-item title="基础物料" name="2">
+			<el-collapse-item :title="$t('component')" name="2">
 				<draggable
 					class="draggable"
 					v-model="basicFields"
@@ -58,14 +58,14 @@
 							<el-icon>
 								<component :is="element.icon" />
 							</el-icon>
-							{{ element.displayName }}
+							{{ $t(element.type) }}
 						</div>
 					</template>
 				</draggable>
 			</el-collapse-item>
 
 			<!-- 高级物料 -->
-			<el-collapse-item title="高级物料" name="3">
+			<el-collapse-item :title="$t('advance')" name="3">
 				<draggable
 					class="draggable"
 					v-model="advanceFields"
@@ -89,7 +89,7 @@
 							<el-icon>
 								<component :is="element.icon" />
 							</el-icon>
-							{{ element.displayName }}
+							{{ $t(element.type) }}
 						</div>
 					</template>
 				</draggable>
@@ -220,7 +220,7 @@
 	})
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 	.draggable {
 		display: flex;
 		align-items: center;

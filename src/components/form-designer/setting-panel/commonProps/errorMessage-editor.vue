@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="校验错误提示">
+	<el-form-item :label="$t('errorMessage')">
 		<el-input v-model="state.optionModel.errorMessage" size="small" />
 	</el-form-item>
 </template>

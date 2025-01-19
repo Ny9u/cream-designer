@@ -1,6 +1,6 @@
 <template>
 	<el-tabs v-model="state.activeTab" style="overflow: hidden">
-		<el-tab-pane label="组件配置" name="组件配置">
+		<el-tab-pane :label="$t('componentSetting')" name="组件配置">
 			<el-scrollbar :height="state.scrollHeight">
 				<el-form
 					:model="designer.getSeletedWidgetOptions()"
@@ -40,7 +40,7 @@
 				</el-form>
 			</el-scrollbar>
 		</el-tab-pane>
-		<el-tab-pane label="表单配置" name="表单配置">
+		<el-tab-pane :label="$t('formSetting')" name="表单配置">
 			<el-scrollbar>
 				<el-form label-position="left" label-width="96px">
 					<el-collapse v-model="state.activeCollapse">
@@ -85,6 +85,8 @@
 	import EventProps from './eventProps/index'
 	import { COMMON_PROPERTIES, EVENT_PROPERTIES } from './propertyRegister'
 	import CodeEditorDialog from './components/codeEditorDialog.vue'
+	import { getCurrentInstance } from 'vue'
+	const { $t } = getCurrentInstance().proxy
 	const designer = inject('designer')
 
 	defineOptions({
@@ -106,26 +108,30 @@
 		activeTab: '组件配置',
 		activeCollapse: [0, 1],
 		scrollHeight: 0,
-		widgetPropertyLists: [
-			{
-				name: '普通属性',
-				propertys: [],
-			},
-			{
-				name: '事件属性',
-				propertys: [],
-			},
-		],
-		formPropertyLists: [
-			{
-				name: '普通属性',
-				propertys: [],
-			},
-			{
-				name: '事件属性',
-				propertys: [],
-			},
-		],
+		widgetPropertyLists: computed(() => {
+			return [
+				{
+					name: $t('attributes'),
+					propertys: [],
+				},
+				{
+					name: $t('events'),
+					propertys: [],
+				},
+			]
+		}),
+		formPropertyLists: computed(() => {
+			return [
+				{
+					name: $t('attributes'),
+					propertys: [],
+				},
+				{
+					name: $t('events'),
+					propertys: [],
+				},
+			]
+		}),
 		showCodeDialog: false, // 展示事件属性编辑器
 		codeDialogTitle: '',
 		codeDialogTip: '',
@@ -196,4 +202,17 @@
 	}
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+:deep(.el-collapse-item__content) {
+	padding-bottom: 10px;
+}
+:deep(.el-tabs__header) {
+	margin-bottom: 0px;
+}
+:deep(.el-scrollbar__bar) {
+	display: none;
+}
+:deep(.el-tabs__item) {
+	width: 127px;
+}
+</style>

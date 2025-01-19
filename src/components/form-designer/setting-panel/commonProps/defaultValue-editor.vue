@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="初始值">
+	<el-form-item :label="$t('defaultValue')">
 		<el-input
 			v-model="state.optionModel.defaultValue"
 			placeholder="请输入初始值"

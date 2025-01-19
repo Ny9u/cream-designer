@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="可清除">
+	<el-form-item :label="$t('clearable')">
 		<el-switch v-model="state.optionModel.clearable" />
 	</el-form-item>
 </template>

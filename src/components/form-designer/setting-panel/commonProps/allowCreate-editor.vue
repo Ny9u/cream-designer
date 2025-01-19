@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="创建新选项">
+	<el-form-item :label="$t('allowCreate')">
 		<el-switch v-model="state.optionModel.allowCreate" />
 	</el-form-item>
 </template>

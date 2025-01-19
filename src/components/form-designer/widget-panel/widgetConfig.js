@@ -2,7 +2,6 @@
 export const containerFields = [
 	{
 		type: 'grid',
-		displayName: '栅格',
 		category: 'container',
 		icon: 'full-screen',
 		cols: [], //存储栅格列
@@ -18,7 +17,6 @@ export const containerFields = [
 	},
 	{
 		type: 'grid-col',
-		displayName: '栅格列',
 		category: 'container',
 		hidden: true, // 不显示容器元素的子元素
 		widgetList: [], //嵌套元素列表
@@ -35,7 +33,6 @@ export const containerFields = [
 export const basicFields = [
 	{
 		type: 'input',
-		displayName: '单行输入',
 		icon: 'edit',
 		options: {
 			propName: '', // 字段名称
@@ -66,7 +63,6 @@ export const basicFields = [
 	},
 	{
 		type: 'textarea',
-		displayName: '多行输入',
 		icon: 'document',
 		options: {
 			propName: '', // 字段名称
@@ -97,7 +93,6 @@ export const basicFields = [
 	},
 	{
 		type: 'radio',
-		displayName: '单选项',
 		icon: 'menu',
 		options: {
 			// 通用属性-------------------------
@@ -136,7 +131,6 @@ export const basicFields = [
 	},
 	{
 		type: 'checkbox',
-		displayName: '多选项',
 		icon: 'grid',
 		options: {
 			// 通用属性-------------------------
@@ -179,7 +173,6 @@ export const basicFields = [
 	},
 	{
 		type: 'select',
-		displayName: '下拉选项',
 		icon: 'more',
 		options: {
 			// 通用属性-------------------------
@@ -228,7 +221,6 @@ export const basicFields = [
 	},
 	{
 		type: 'button',
-		displayName: '按钮',
 		icon: 'help',
 		options: {
 			// 通用属性-------------------------
@@ -249,7 +241,6 @@ export const basicFields = [
 	},
 	{
 		type: 'time',
-		displayName: '时间',
 		icon: 'watch',
 		options: {
 			// 通用属性-------------------------
@@ -292,8 +283,7 @@ export const basicFields = [
 		},
 	},
 	{
-		type: 'time-range',
-		displayName: '时间范围',
+		type: 'timeRange',
 		icon: 'alarm-clock',
 		options: {
 			// 通用属性-------------------------
@@ -338,7 +328,6 @@ export const basicFields = [
 	},
 	{
 		type: 'date',
-		displayName: '日期',
 		icon: 'sunrise',
 		options: {
 			// 通用属性-------------------------
@@ -383,8 +372,7 @@ export const basicFields = [
 		},
 	},
 	{
-		type: 'date-range',
-		displayName: '日期范围',
+		type: 'dateRange',
 		icon: 'data-board',
 		options: {
 			// 通用属性-------------------------
@@ -426,7 +414,6 @@ export const basicFields = [
 	},
 	{
 		type: 'rate',
-		displayName: '评分',
 		icon: 'trophy',
 		options: {
 			// 通用属性-------------------------
@@ -450,7 +437,6 @@ export const basicFields = [
 	},
 	{
 		type: 'switch',
-		displayName: '开关',
 		icon: 'switch-button',
 		options: {
 			// 通用属性-------------------------
@@ -473,8 +459,7 @@ export const basicFields = [
 		},
 	},
 	{
-		type: 'color-picker',
-		displayName: '取色器',
+		type: 'colorPicker',
 		icon: 'brush',
 		options: {
 			// 通用属性-------------------------
@@ -496,7 +481,6 @@ export const basicFields = [
 	},
 	{
 		type: 'divider',
-		displayName: '分割线',
 		icon: 'guide',
 		options: {
 			// 通用属性-------------------------
@@ -512,7 +496,6 @@ export const basicFields = [
 	},
 	{
 		type: 'text',
-		displayName: '纯文字',
 		icon: 'document-add',
 		options: {
 			// 通用属性-------------------------
@@ -525,7 +508,6 @@ export const basicFields = [
 	},
 	{
 		type: 'upload',
-		displayName: '上传器',
 		icon: 'upload',
 		options: {
 			// 通用属性-------------------------
@@ -547,7 +529,6 @@ export const basicFields = [
 export const advanceFields = [
 	{
 		type: 'cascader',
-		displayName: '级联选择',
 		icon: 'film',
 		options: {
 			// 通用属性-------------------------

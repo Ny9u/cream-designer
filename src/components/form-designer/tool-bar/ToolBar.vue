@@ -2,27 +2,27 @@
 	<div class="container">
 		<div>
 			<el-button type="primary" plain :disabled="!state.canUndo" @click="Undo">
-				撤销
+				{{$t('revoke')}}
 			</el-button>
 			<el-button type="primary" plain :disabled="!state.canRedo" @click="Redo">
-				重做
+				{{$t('redo')}}
 			</el-button>
 		</div>
 		<div>
-			<el-button type="primary" plain @click="clearForm">清空表单</el-button>
+			<el-button type="primary" plain @click="clearForm">{{$t('clear')}}</el-button>
 			<el-button type="primary" plain @click="showPreviewDialog">
-				预览效果
+				{{$t('preview')}}
 			</el-button>
 			<el-button type="primary" plain @click="showImportJsonDialog">
-				导入JSON
+				{{$t('importJson')}}
 			</el-button>
 			<el-button type="primary" plain @click="showExportJsonDialog">
-				导出JSON
+				{{$t('exportJson')}}
 			</el-button>
 			<el-button type="primary" plain @click="showExportSFCCode">
-				导出代码
+				{{$t('exportCode')}}
 			</el-button>
-			<el-button type="primary" plain @click="showCreateSFC">生成SFC</el-button>
+			<el-button type="primary" plain @click="showCreateSFC">{{$t('create')}}</el-button>
 		</div>
 	</div>
 	<!-- 预览效果 -->

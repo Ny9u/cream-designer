@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="开启搜索筛选">
+	<el-form-item :label="$t('filterable')">
 		<el-switch v-model="state.optionModel.filterable" />
 	</el-form-item>
 </template>

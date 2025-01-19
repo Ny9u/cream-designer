@@ -38,4 +38,8 @@
 		localStorage.removeItem('formConfig')
 	})
 </script>
-<style scoped></style>
+<style lang="less" scoped>
+:deep(.el-row.is-justify-space-between) {
+	justify-content: space-evenly;
+}
+</style>
