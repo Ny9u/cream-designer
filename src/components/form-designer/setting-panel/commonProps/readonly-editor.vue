@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="只读">
+	<el-form-item :label="$t('readonly')">
 		<el-switch v-model="state.optionModel.readonly" />
 	</el-form-item>
 </template>

@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="标签宽度">
+	<el-form-item :label="$t('formLabelWidth')">
 		<el-input v-model="state.optionModel.formLabelWidth" size="small" />
 	</el-form-item>
 </template>

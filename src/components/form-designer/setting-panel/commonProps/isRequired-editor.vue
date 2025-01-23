@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="必填" prop="isRequired">
+	<el-form-item :label="$t('isRequired')" prop="isRequired">
 		<el-switch v-model="state.optionModel.isRequired"></el-switch>
 	</el-form-item>
 </template>

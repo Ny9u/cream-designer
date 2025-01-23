@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="必填校验提示">
+	<el-form-item :label="$t('requiredMessage')">
 		<el-input v-model="state.optionModel.requiredMessage" size="small" />
 	</el-form-item>
 </template>

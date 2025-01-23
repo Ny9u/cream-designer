@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="请求地址">
+	<el-form-item :label="$t('url')">
 		<el-input v-model="state.optionModel.url" size="small" />
 	</el-form-item>
 </template>

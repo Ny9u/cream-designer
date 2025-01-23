@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="初始值">
+	<el-form-item :label="$t('defaultValue')">
 		<el-rate
 			v-model="state.optionModel.rateValue"
 			:disabled="optionModel.disabled"

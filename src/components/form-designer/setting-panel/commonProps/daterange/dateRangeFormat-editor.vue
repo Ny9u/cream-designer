@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="显示格式">
+	<el-form-item :label="$t('format')">
 		<el-select v-model="state.optionModel.dateRangeFormat" size="small">
 			<el-option
 				v-for="item in state.optionModel.dateRangeOption"

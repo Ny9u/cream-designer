@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="隐藏">
+	<el-form-item :label="$t('hidden')">
 		<el-switch v-model="state.optionModel.hidden" />
 	</el-form-item>
 </template>

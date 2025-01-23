@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="组件大小">
+	<el-form-item :label="$t('size')">
 		<el-select v-model="state.optionModel.size" size="small">
 			<el-option
 				v-for="item in state.options"

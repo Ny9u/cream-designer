@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="标签宽度" prop="labelWidth">
+	<el-form-item :label="$t('labelWidth')" prop="labelWidth">
 		<el-input
 			size="small"
 			type="text"

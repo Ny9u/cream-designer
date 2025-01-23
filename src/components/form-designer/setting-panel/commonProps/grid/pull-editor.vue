@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="向左偏移">
+	<el-form-item :label="$t('offsetLeft')">
 		<el-input-number
 			v-model="state.optionModel.pull"
 			size="small"

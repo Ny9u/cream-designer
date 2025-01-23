@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="标签对齐" prop="labelAlign">
+	<el-form-item :label="$t('labelAlign')" prop="labelAlign">
 		<el-button-group v-model="state.optionModel.labelAlign">
 			<el-button
 				v-for="(item, idx) in state.styleList"

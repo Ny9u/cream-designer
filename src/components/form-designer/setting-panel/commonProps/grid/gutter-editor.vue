@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="栅格间距">
+	<el-form-item :label="$t('gutter')">
 		<el-input v-model="state.optionModel.gutter" size="small" />
 	</el-form-item>
 </template>

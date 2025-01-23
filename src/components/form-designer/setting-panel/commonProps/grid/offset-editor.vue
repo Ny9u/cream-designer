@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="整体偏移">
+	<el-form-item :label="$t('offset')">
 		<el-input-number
 			v-model="state.optionModel.offset"
 			size="small"

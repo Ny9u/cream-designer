@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="表单引用名称">
+	<el-form-item :label="$t('formRefName')">
 		<el-input v-model="state.optionModel.formRefName" size="small" />
 	</el-form-item>
 </template>

@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="分割线样式">
+	<el-form-item :label="$t('borderStyle')">
 		<el-select v-model="state.optionModel.borderStyle" size="small">
 			<el-option
 				v-for="item in state.typeOptions"

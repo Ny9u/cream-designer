@@ -1,9 +1,9 @@
 <template>
 	<div>
-		<el-divider content-position="center">栅格列设置</el-divider>
+		<el-divider content-position="center">{{$t('gridOptionItem')}}</el-divider>
 		<div>
 			<el-form-item
-				:label="`栅格列宽度${idx + 1}`"
+				:label="$t('colWidth')`${idx + 1}`"
 				v-for="(item, idx) in widget.cols"
 				:key="item.id"
 			>
@@ -16,7 +16,7 @@
 			</el-form-item>
 		</div>
 		<div class="action primary-color">
-			<span @click="addItem">增加栅格列</span>
+			<span @click="addItem">{{$t('addCol')}}</span>
 		</div>
 	</div>
 </template>

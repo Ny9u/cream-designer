@@ -1,5 +1,5 @@
 <template>
-	<el-form-item required :rules="state.rules" label="唯一名称" prop="propName">
+	<el-form-item required :rules="state.rules" :label="$t('propName')" prop="propName">
 		<el-input
 			size="small"
 			type="text"

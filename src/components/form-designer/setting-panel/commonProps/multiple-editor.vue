@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="是否多选">
+	<el-form-item :label="$t('multiple')">
 		<el-switch
 			:before-change="onChangeHandle"
 			v-model="state.optionModel.multiple"

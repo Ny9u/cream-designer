@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="分隔符名称">
+	<el-form-item :label="$t('rangeSeparator')">
 		<el-input v-model="state.optionModel.rangeSeparator" size="small" />
 	</el-form-item>
 </template>

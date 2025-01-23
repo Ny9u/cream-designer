@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="栅格列高">
+	<el-form-item :label="$t('colHeight')">
 		<el-input v-model="state.optionModel.colHeight" size="small" />
 	</el-form-item>
 </template>

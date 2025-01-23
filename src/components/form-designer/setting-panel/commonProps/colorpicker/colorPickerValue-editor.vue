@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="初始值">
+	<el-form-item :label="$t('defaultValue')">
 		<el-color-picker
 			:disabled="optionModel.disabled"
 			v-model="state.optionModel.colorPickerValue"

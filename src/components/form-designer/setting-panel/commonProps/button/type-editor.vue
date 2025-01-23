@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="按钮类型">
+	<el-form-item :label="$t('type')">
 		<el-select v-model="state.optionModel.type" size="small">
 			<el-option
 				v-for="item in state.typeOptions"

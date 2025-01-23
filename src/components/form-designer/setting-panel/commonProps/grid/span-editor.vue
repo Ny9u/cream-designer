@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="栅格长度">
+	<el-form-item :label="$t('gridLength')">
 		<el-input-number
 			size="small"
 			v-model="state.optionModel.span"

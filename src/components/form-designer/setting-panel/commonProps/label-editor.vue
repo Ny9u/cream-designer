@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="标签" prop="label">
+	<el-form-item :label="$t('label')" prop="label">
 		<el-input
 			size="small"
 			type="text"

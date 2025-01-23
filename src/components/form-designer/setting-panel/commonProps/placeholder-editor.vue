@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="占位提示">
+	<el-form-item :label="$t('placeholder')">
 		<el-input
 			v-model="state.optionModel.placeholder"
 			type="text"

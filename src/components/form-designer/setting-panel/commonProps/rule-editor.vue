@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="校验规则">
+	<el-form-item :label="$t('rule')">
 		<el-select
 			v-model="state.optionModel.rule"
 			size="small"

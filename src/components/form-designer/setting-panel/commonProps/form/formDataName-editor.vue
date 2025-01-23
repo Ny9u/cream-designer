@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="数据对象名称">
+	<el-form-item :label="$t('formDataName')">
 		<el-input v-model="state.optionModel.formDataName" size="small" />
 	</el-form-item>
 </template>

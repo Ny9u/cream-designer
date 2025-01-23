@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="分割线方向">
+	<el-form-item :label="$t('direction')">
 		<el-select v-model="state.optionModel.direction" size="small">
 			<el-option
 				v-for="item in state.direction"

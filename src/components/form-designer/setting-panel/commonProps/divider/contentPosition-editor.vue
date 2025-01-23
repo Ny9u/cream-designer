@@ -1,5 +1,5 @@
 <template>
-	<el-form-item label="内容位置">
+	<el-form-item :label="$t('contentPosition')">
 		<el-select v-model="state.optionModel.contentPosition" size="small">
 			<el-option
 				v-for="item in state.position"
