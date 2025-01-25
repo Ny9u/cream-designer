@@ -203,16 +203,16 @@
 </script>
 
 <style lang="less" scoped>
-:deep(.el-collapse-item__content) {
-	padding-bottom: 10px;
-}
-:deep(.el-tabs__header) {
-	margin-bottom: 0px;
-}
-:deep(.el-scrollbar__bar) {
-	display: none;
-}
-:deep(.el-tabs__item) {
-	width: 127px;
-}
+	:deep(.el-collapse-item__content) {
+		padding-bottom: 10px;
+	}
+	:deep(.el-tabs__header) {
+		margin-bottom: 0px;
+	}
+	:deep(.el-scrollbar__bar) {
+		display: none;
+	}
+	:deep(.el-tabs__item) {
+		width: 127px;
+	}
 </style>

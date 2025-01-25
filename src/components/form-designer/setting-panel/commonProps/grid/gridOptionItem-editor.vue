@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<el-divider content-position="center">{{$t('gridOptionItem')}}</el-divider>
+		<el-divider content-position="center">
+			{{ $t('gridOptionItem') }}
+		</el-divider>
 		<div>
 			<el-form-item
 				:label="$t('colWidth')"
@@ -16,7 +18,7 @@
 			</el-form-item>
 		</div>
 		<div class="action primary-color">
-			<span @click="addItem">{{$t('addCol')}}</span>
+			<span @click="addItem">{{ $t('addCol') }}</span>
 		</div>
 	</div>
 </template>

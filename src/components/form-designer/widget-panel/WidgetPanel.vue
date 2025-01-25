@@ -244,7 +244,7 @@
 			margin-right: 10px;
 		}
 	}
-	.item.move:nth-last-child(2){
+	.item.move:nth-last-child(2) {
 		margin-bottom: 0;
 	}
 	.item.move:last-child {

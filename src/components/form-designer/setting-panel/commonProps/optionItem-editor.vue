@@ -1,6 +1,6 @@
 <template>
 	<el-form-item label-width="0">
-		<el-divider content-position="center">{{$t('optionItem')}}</el-divider>
+		<el-divider content-position="center">{{ $t('optionItem') }}</el-divider>
 		<el-radio-group v-model="state.optionModel.value">
 			<div
 				class="option-item"
@@ -14,8 +14,8 @@
 			</div>
 		</el-radio-group>
 		<div class="action">
-			<span @click="insertItem">{{$t('insertItem')}}</span>
-			<span @click="importItem">{{$t('importItem')}}</span>
+			<span @click="insertItem">{{ $t('insertItem') }}</span>
+			<span @click="importItem">{{ $t('importItem') }}</span>
 		</div>
 		<ImportItemDialog
 			@importItem="importItemHandle"

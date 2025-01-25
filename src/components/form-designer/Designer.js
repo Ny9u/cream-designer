@@ -138,8 +138,8 @@ export class Designer {
 		window.dispatchEvent(new CustomEvent('select_widget'))
 	}
 	//检测工作区的物料移动
-	checkMove= (e) => {
-		console.log("移动组件的索引:",e.draggedContext.index)
+	checkMove = (e) => {
+		console.log('移动组件的索引:', e.draggedContext.index)
 	}
 	//工作区物料索引更新后的回调
 	dragUpdate = (e) => {

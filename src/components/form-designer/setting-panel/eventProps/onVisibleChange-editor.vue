@@ -7,7 +7,7 @@
 			class="button"
 		>
 			<img src="@/assets/edit.svg" />
-			&nbsp;&nbsp;{{$t('coding')}}
+			&nbsp;&nbsp;{{ $t('coding') }}
 		</el-button>
 	</el-form-item>
 </template>

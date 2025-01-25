@@ -34,7 +34,7 @@
 	provide('designer', state.designer)
 </script>
 <style lang="less" scoped>
-:deep(.el-row.is-justify-space-between) {
-	justify-content: space-evenly;
-}
+	:deep(.el-row.is-justify-space-between) {
+		justify-content: space-evenly;
+	}
 </style>

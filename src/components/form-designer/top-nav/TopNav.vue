@@ -4,10 +4,10 @@
 			<img
 				src="@/assets/icon.svg"
 				alt="icon"
-				style="height: 50px; cursor: default;"
+				style="height: 50px; cursor: default"
 			/>
 		</el-menu-item>
-		<el-menu-item style="font-size: 19px; font-weight: bold; cursor: default;">
+		<el-menu-item style="font-size: 19px; font-weight: bold; cursor: default">
 			{{ $t('title') }}
 		</el-menu-item>
 		<div class="switch">
@@ -30,11 +30,15 @@
 				/>
 				<template #dropdown>
 					<el-dropdown-menu>
-						<el-dropdown-item @click="handleClick('zh_CN')">中文</el-dropdown-item>
-						<el-dropdown-item @click="handleClick('en_US')">English</el-dropdown-item>
+						<el-dropdown-item @click="handleClick('zh_CN')">
+							中文
+						</el-dropdown-item>
+						<el-dropdown-item @click="handleClick('en_US')">
+							English
+						</el-dropdown-item>
 					</el-dropdown-menu>
 				</template>
-    	</el-dropdown>
+			</el-dropdown>
 		</div>
 		<div class="github">
 			<a href="https://github.com/Ny9u/cream-designer">
@@ -71,7 +75,7 @@
 	}
 </script>
 
-<style lang="less"scoped>
+<style lang="less" scoped>
 	.el-menu--horizontal > .el-menu-item:nth-child(2) {
 		margin-right: auto;
 	}

@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<el-divider content-position="center">{{$t('optionItem')}}</el-divider>
+		<el-divider content-position="center">{{ $t('optionItem') }}</el-divider>
 		<div class="cascader">
 			<!-- 因为value需要双向绑定,所以用state建立响应式数据,而option只需要传入即可,实际两者指向同一个地方 -->
 			<el-cascader
@@ -9,8 +9,8 @@
 			/>
 		</div>
 		<div class="action primary-color">
-			<span @click="importItem">{{$t('insertItem')}}</span>
-			<span @click="state.optionModel.value = ''">{{$t('reset')}}</span>
+			<span @click="importItem">{{ $t('insertItem') }}</span>
+			<span @click="state.optionModel.value = ''">{{ $t('reset') }}</span>
 		</div>
 	</div>
 	<ImportCascaderOptionDialog

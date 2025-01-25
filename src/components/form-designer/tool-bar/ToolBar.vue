@@ -2,28 +2,34 @@
 	<div class="container">
 		<div>
 			<el-button type="primary" plain :disabled="!state.canUndo" @click="Undo">
-				{{$t('revoke')}}
+				{{ $t('revoke') }}
 			</el-button>
 			<el-button type="primary" plain :disabled="!state.canRedo" @click="Redo">
-				{{$t('redo')}}
+				{{ $t('redo') }}
 			</el-button>
 		</div>
 		<div>
-			<el-button type="primary" plain @click="clearForm">{{$t('clear')}}</el-button>
-			<el-button type="primary" plain @click="saveForm">{{$t('save')}}</el-button>
+			<el-button type="primary" plain @click="clearForm">
+				{{ $t('clear') }}
+			</el-button>
+			<el-button type="primary" plain @click="saveForm">
+				{{ $t('save') }}
+			</el-button>
 			<el-button type="primary" plain @click="showPreviewDialog">
-				{{$t('preview')}}
+				{{ $t('preview') }}
 			</el-button>
 			<el-button type="primary" plain @click="showImportJsonDialog">
-				{{$t('importJson')}}
+				{{ $t('importJson') }}
 			</el-button>
 			<el-button type="primary" plain @click="showExportJsonDialog">
-				{{$t('exportJson')}}
+				{{ $t('exportJson') }}
 			</el-button>
 			<el-button type="primary" plain @click="showExportSFCCode">
-				{{$t('exportCode')}}
+				{{ $t('exportCode') }}
 			</el-button>
-			<el-button type="primary" plain @click="showCreateSFC">{{$t('create')}}</el-button>
+			<el-button type="primary" plain @click="showCreateSFC">
+				{{ $t('create') }}
+			</el-button>
 		</div>
 	</div>
 	<!-- 预览效果 -->
@@ -58,7 +64,7 @@
 	import ExportJsonDialog from './components/showCodeDialog.vue'
 	import { generateCode } from '@/utils/codeGenerator.js'
 	import { sfcGenerator } from '@/utils/sfcGenerator.js'
-import { ElMessage } from 'element-plus'
+	import { ElMessage } from 'element-plus'
 
 	const designer = inject('designer')
 
@@ -89,7 +95,10 @@ import { ElMessage } from 'element-plus'
 	const saveForm = () => {
 		localStorage.setItem('widgetList', JSON.stringify(designer.widgetList))
 		localStorage.setItem('formConfig', JSON.stringify(designer.formConfig))
-		if(localStorage.getItem('widgetList')&&localStorage.getItem('formConfig')){
+		if (
+			localStorage.getItem('widgetList') &&
+			localStorage.getItem('formConfig')
+		) {
 			ElMessage({
 				message: '保存成功',
 				type: 'success',
