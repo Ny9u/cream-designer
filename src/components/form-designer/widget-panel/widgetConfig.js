@@ -378,7 +378,7 @@ export const basicFields = [
 			// 通用属性-------------------------
 			propName: '', // 字段名称
 			defaultValue: '', // 初始值
-			label: 'date-range',
+			label: 'dateRange',
 			labelAlign: 'left',
 			labelWidth: '80',
 			labelHidden: false,

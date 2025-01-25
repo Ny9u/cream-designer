@@ -21,9 +21,9 @@
 			<div class="active-border"></div>
 			<div class="active-drag">
 				<el-icon><Rank /></el-icon>
-				<span>{{ widget.displayName }}</span>
+				<span>{{ widget.type}}</span>
 				<!-- 隐藏icon -->
-				<el-icon v-if="widget.options.hidden"><Hide /></el-icon>
+				<el-icon v-if="widget.options.hidden" style="margin-left: 3px;"><Hide /></el-icon>
 			</div>
 			<div class="active-action">
 				<el-icon @click.stop="selectParent"><Back /></el-icon>

@@ -9,7 +9,7 @@
 		<div class="active" v-if="widget == designer.selectedWidget && isDesign">
 			<div class="active-title">
 				<el-icon><Rank /></el-icon>
-				<span>{{ widget.displayName }}</span>
+				<span>{{ widget.type }}</span>
 			</div>
 			<div class="active-action">
 				<el-icon @click.stop="selectParent"><Back /></el-icon>
@@ -90,7 +90,7 @@
 			border: 2px solid #409eff;
 		}
 		&.unactive {
-			border: 1px dashed black;
+			border: 1px solid black;
 		}
 		:deep(.el-form-item) {
 			position: relative;

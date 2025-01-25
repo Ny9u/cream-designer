@@ -21,7 +21,7 @@
 	import formItemWrapper from './form-item-wrapper.vue'
 
 	defineOptions({
-		name: 'date-range-widget',
+		name: 'dateRange-widget',
 		mixins: [registerEvents],
 	})
 

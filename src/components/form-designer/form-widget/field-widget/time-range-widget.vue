@@ -29,7 +29,7 @@
 	import { reactive, computed } from 'vue'
 
 	defineOptions({
-		name: 'time-range-widget',
+		name: 'timeRange-widget',
 		mixins: [registerEvents],
 	})
 

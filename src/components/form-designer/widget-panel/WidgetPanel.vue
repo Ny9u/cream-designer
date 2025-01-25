@@ -228,7 +228,7 @@
 		flex-wrap: wrap;
 	}
 	.item.move {
-		width: 49%;
+		width: 47%;
 		box-sizing: border-box;
 		height: 25px;
 		cursor: move;
@@ -240,11 +240,14 @@
 		font-size: 13px;
 		display: flex;
 		align-items: center;
-		/*.el-icon {
-    margin-right: 5px;
-  }
-  &.selected {
-    border: 2px dashed #409eff;
-  }*/
+		.el-icon {
+			margin-right: 10px;
+		}
+	}
+	.item.move:nth-last-child(2){
+		margin-bottom: 0;
+	}
+	.item.move:last-child {
+		margin-bottom: 0;
 	}
 </style>
