@@ -3,8 +3,8 @@
 		<el-divider content-position="center">{{$t('gridOptionItem')}}</el-divider>
 		<div>
 			<el-form-item
-				:label="$t('colWidth')`${idx + 1}`"
-				v-for="(item, idx) in widget.cols"
+				:label="$t('colWidth')"
+				v-for="item in widget.cols"
 				:key="item.id"
 			>
 				<el-input-number
