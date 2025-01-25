@@ -22,6 +22,7 @@ const Names = {
   revoke: '撤销',
   redo: '重做',
   clear: '清空',
+  save: '保存',
   preview: '预览效果',
   importJson: '导入 JSON',
   exportJson: '导出 JSON',

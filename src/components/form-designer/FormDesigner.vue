@@ -32,11 +32,6 @@
 		}),
 	})
 	provide('designer', state.designer)
-
-	window.addEventListener('beforeunload', () => {
-		localStorage.removeItem('widgetList')
-		localStorage.removeItem('formConfig')
-	})
 </script>
 <style lang="less" scoped>
 :deep(.el-row.is-justify-space-between) {

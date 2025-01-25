@@ -22,6 +22,7 @@ const Names = {
   revoke: 'Revoke',
   redo: 'Redo',
   clear: 'Clear',
+  save: 'Save',
   preview: 'Preview',
   importJson: 'Import JSON',
   exportJson: 'Export JSON',

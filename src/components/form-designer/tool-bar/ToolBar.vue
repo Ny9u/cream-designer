@@ -10,6 +10,7 @@
 		</div>
 		<div>
 			<el-button type="primary" plain @click="clearForm">{{$t('clear')}}</el-button>
+			<el-button type="primary" plain @click="saveForm">{{$t('save')}}</el-button>
 			<el-button type="primary" plain @click="showPreviewDialog">
 				{{$t('preview')}}
 			</el-button>
@@ -57,6 +58,7 @@
 	import ExportJsonDialog from './components/showCodeDialog.vue'
 	import { generateCode } from '@/utils/codeGenerator.js'
 	import { sfcGenerator } from '@/utils/sfcGenerator.js'
+import { ElMessage } from 'element-plus'
 
 	const designer = inject('designer')
 
@@ -74,18 +76,32 @@
 
 	const Undo = () => {
 		designer.command.undo()
-		localStorage.setItem('widgetList', JSON.stringify(designer.widgetList))
-		localStorage.setItem('formConfig', JSON.stringify(designer.formConfig))
 	}
 
 	const Redo = () => {
 		designer.command.redo()
-		localStorage.setItem('widgetList', JSON.stringify(designer.widgetList))
-		localStorage.setItem('formConfig', JSON.stringify(designer.formConfig))
 	}
 
 	const clearForm = () => {
 		designer.clearWidget()
+	}
+
+	const saveForm = () => {
+		localStorage.setItem('widgetList', JSON.stringify(designer.widgetList))
+		localStorage.setItem('formConfig', JSON.stringify(designer.formConfig))
+		if(localStorage.getItem('widgetList')&&localStorage.getItem('formConfig')){
+			ElMessage({
+				message: '保存成功',
+				type: 'success',
+				plain: true,
+			})
+		} else {
+			ElMessage({
+				message: '保存失败',
+				type: 'warning',
+				plain: true,
+			})
+		}
 	}
 
 	const showPreviewDialog = () => {
