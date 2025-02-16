@@ -67,7 +67,11 @@
 	}
 
 	const selectWidget = (widget, index) => {
-		designer.selectWidget(widget, index)
+		if (designer.selectedWidget && widget === designer.selectedWidget) {
+			designer.selectWidget(null, -1)
+		} else {
+			designer.selectWidget(widget, index)
+		}
 	}
 	// 计算滚动条高度,表单内置滚动条
 	const computedHeight = () => {

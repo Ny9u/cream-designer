@@ -29,7 +29,7 @@
 									:key="Math.random() + propKey"
 									v-if="hasEditProp(propKey)"
 									:is="getEditorName(propKey)"
-									:optionModel="designer.selectedWidget.options"
+									:optionModel="designer.selectedWidget?.options"
 									:designer="designer"
 									:widget="designer.selectedWidget"
 									@editEventProp="editEventProp"
