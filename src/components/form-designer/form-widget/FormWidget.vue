@@ -1,6 +1,6 @@
 <template>
 	<div class="form-widget">
-		<el-scrollbar :height="state.scrollHeight">
+		<el-scrollbar :height="state.scrollHeight" id="form_container">
 			<el-form
 				class="form-body"
 				:model="state.formData"
@@ -35,7 +35,7 @@
 	</div>
 </template>
 <script setup>
-	import { inject, computed, reactive, onMounted, onBeforeUnmount } from 'vue'
+	import { inject, computed, reactive, onMounted, onBeforeUnmount, nextTick, getCurrentInstance } from 'vue'
 	import draggable from 'vuedraggable'
 	import { getWidgetName } from '@/utils/tool'
 	import FieldComponents from './field-widget/index'
@@ -45,6 +45,7 @@
 			...FieldComponents,
 		},
 	})
+	const instance = getCurrentInstance();
 	const designer = inject('designer')
 	const state = reactive({
 		formData: computed(() => JSON.parse(designer.getJSON())),
@@ -84,14 +85,23 @@
 			body.style.background = '#fff'
 		}
 	}
+
+	const exportPdf = (arr) => {
+		nextTick(() => {
+			instance.proxy.$htmlToPdf(arr[0], arr[1])
+		})
+	}
+
 	onMounted(() => {
 		window.addEventListener('resize', computedHeight)
 		eventBus.on('changeDark', changeDark)
+		eventBus.on('exportPdf', exportPdf)
 	})
 
 	onBeforeUnmount(() => {
 		window.removeEventListener('resize', computedHeight) *
 			eventBus.off('changeDark', changeDark)
+			eventBus.off('exportPdf', exportPdf)
 	})
 </script>
 

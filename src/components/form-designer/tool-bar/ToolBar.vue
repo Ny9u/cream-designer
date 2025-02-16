@@ -21,15 +21,28 @@
 			<el-button type="primary" plain @click="showImportJsonDialog">
 				{{ $t('importJson') }}
 			</el-button>
-			<el-button type="primary" plain @click="showExportJsonDialog">
-				{{ $t('exportJson') }}
-			</el-button>
-			<el-button type="primary" plain @click="showExportSFCCode">
-				{{ $t('exportCode') }}
-			</el-button>
-			<el-button type="primary" plain @click="showCreateSFC">
-				{{ $t('create') }}
-			</el-button>
+			<el-dropdown class="dropdown_con">
+				<el-button type="primary" plain>
+					导出
+					<el-icon class="el-icon--right"><arrow-down /></el-icon>
+				</el-button>
+				<template #dropdown>
+					<el-dropdown-menu>
+						<!-- <el-dropdown-item @click="showCreateSFC">
+							{{ $t('create') }}
+						</el-dropdown-item> -->
+						<el-dropdown-item @click="showExportJsonDialog">
+							{{ $t('exportJson') }}
+						</el-dropdown-item>
+						<el-dropdown-item @click="showExportSFCCode">
+							{{ $t('exportCode') }}
+						</el-dropdown-item>
+						<el-dropdown-item @click="exportPdf">
+							{{ $t('exportPdf') }}
+						</el-dropdown-item>
+					</el-dropdown-menu>
+				</template>
+    	</el-dropdown>
 		</div>
 	</div>
 	<!-- 预览效果 -->
@@ -65,6 +78,7 @@
 	import { generateCode } from '@/utils/codeGenerator.js'
 	import { sfcGenerator } from '@/utils/sfcGenerator.js'
 	import { ElMessage } from 'element-plus'
+	import { eventBus } from '@/utils/eventBus.js'
 
 	const designer = inject('designer')
 
@@ -192,12 +206,19 @@
 			formConfig: designer.formConfig,
 		})
 	}
+
+	const exportPdf = () => {
+		eventBus.emit('exportPdf', ['form_container', 'form'])
+	}
 </script>
 
-<style>
+<style lang="less" scoped>
 	.container {
 		display: flex;
 		justify-content: space-between;
 		padding: 10px;
+		.dropdown_con {
+			margin-left: 12px;
+		}
 	}
 </style>

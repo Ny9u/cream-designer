@@ -9,7 +9,7 @@ import ContainerWidgets from '@/components/form-designer/form-widget/container-w
 import ContainerRender from '@/components/form-render/container/index'
 import { createPinia } from 'pinia'
 import i18n from './i18n/i18n'
-
+import htmlToPdfPlugin from './utils/htmlToPdf'
 export const createApplication = () => {
 	const pinia = createPinia()
 	const app = createApp(App)
@@ -19,6 +19,7 @@ export const createApplication = () => {
 	app.use(ContainerRender)
 	app.use(pinia)
 	app.use(i18n)
+	app.use(htmlToPdfPlugin)
 	// 将所有引入的ui注册为全局组件
 	for (const [key, component] of Object.entries(ElementPlusIcons)) {
 		app.component(key, component)

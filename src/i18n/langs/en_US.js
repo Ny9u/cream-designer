@@ -28,6 +28,7 @@ const Names = {
 	exportJson: 'Export JSON',
 	exportCode: 'Export Code',
 	create: 'Create SFC',
+	exportPdf: 'Export PDF',
 	// 布局名称
 	title: 'CreamDesigner',
 	container: 'Container',

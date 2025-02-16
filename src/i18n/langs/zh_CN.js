@@ -24,10 +24,11 @@ const Names = {
 	clear: '清空',
 	save: '保存',
 	preview: '预览效果',
-	importJson: '导入 JSON',
-	exportJson: '导出 JSON',
+	importJson: '导入JSON',
+	exportJson: '导出JSON',
 	exportCode: '导出代码',
 	create: '生成SFC',
+	exportPdf: '导出PDF',
 	// 布局名称
 	title: '表单设计器',
 	container: '容器',
