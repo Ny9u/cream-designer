@@ -42,7 +42,7 @@
 						</el-dropdown-item>
 					</el-dropdown-menu>
 				</template>
-    	</el-dropdown>
+			</el-dropdown>
 		</div>
 	</div>
 	<!-- 预览效果 -->

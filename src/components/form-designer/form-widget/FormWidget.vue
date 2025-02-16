@@ -35,7 +35,15 @@
 	</div>
 </template>
 <script setup>
-	import { inject, computed, reactive, onMounted, onBeforeUnmount, nextTick, getCurrentInstance } from 'vue'
+	import {
+		inject,
+		computed,
+		reactive,
+		onMounted,
+		onBeforeUnmount,
+		nextTick,
+		getCurrentInstance,
+	} from 'vue'
 	import draggable from 'vuedraggable'
 	import { getWidgetName } from '@/utils/tool'
 	import FieldComponents from './field-widget/index'
@@ -45,7 +53,7 @@
 			...FieldComponents,
 		},
 	})
-	const instance = getCurrentInstance();
+	const instance = getCurrentInstance()
 	const designer = inject('designer')
 	const state = reactive({
 		formData: computed(() => JSON.parse(designer.getJSON())),
@@ -105,7 +113,7 @@
 	onBeforeUnmount(() => {
 		window.removeEventListener('resize', computedHeight) *
 			eventBus.off('changeDark', changeDark)
-			eventBus.off('exportPdf', exportPdf)
+		eventBus.off('exportPdf', exportPdf)
 	})
 </script>
 

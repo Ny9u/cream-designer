@@ -82,7 +82,10 @@ export class Designer {
 	// 当且仅当通过鼠标点击选择物料时，会得到draggable传来的index，表明它在父容器中的位置，用这个属性来控制选择兄弟物料
 	selectWidget(widget, index) {
 		this.selectedWidget = widget
-		index !== null && index !== undefined && this.selectedWidget && (this.selectedWidget.index = index)
+		index !== null &&
+			index !== undefined &&
+			this.selectedWidget &&
+			(this.selectedWidget.index = index)
 		window.dispatchEvent(new CustomEvent('select_widget')) //发送select_widget事件,会触发clearwidgetchoice
 	}
 	// 获取表单数据
