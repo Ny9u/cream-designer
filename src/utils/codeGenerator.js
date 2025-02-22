@@ -3,16 +3,30 @@ export const generateCode = function (formJson) {
 
 	return ` <template>
     <div>
-      <form-render :form-json="formJson" ref="formRenderRef">
-      </form-render>
+      <el-form>
+        <template v-for="widget in formJSON.widgetList" :key="widget.options.propName">
+          <component
+            v-model:options="widget.options"
+            :is-design="false"
+            :is="getRenderName(widget)"
+            :widget="widget"
+            :designer="state.designer"
+          ></component>
+        </template>
+		  </el-form>
     </div>
   </template>
   
   <script setup>
     import { ref, reactive } from 'vue'
-    import { ElMessage } from 'element-plus'
   
     const formJson = reactive(${formJsonStr})
     const formRenderRef = ref(null)
+    const getRenderName = (widget) => {
+      if (widget.category) {
+        return widget.type + '-render'
+      }
+      return widget.type + '-widget'
+    }
   </script>`
 }
