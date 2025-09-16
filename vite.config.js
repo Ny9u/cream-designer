@@ -4,12 +4,25 @@ import { fileURLToPath, URL } from 'node:url'
 import { Plugin as importToCdn ,autoComplete } from 'vite-plugin-cdn-import'
 import { visualizer } from 'rollup-plugin-visualizer';
 import viteCompression from 'vite-plugin-compression';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import Components from 'unplugin-vue-components/vite';
+import PurgeCss from 'vite-plugin-purgecss';
 
 export default defineConfig(({command,mode}) => {
   const isLibBuild = command === 'build' && mode === 'production';
   return{
     plugins: [
       vue(),
+      // Element Plus 组件按需引入
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
+      PurgeCss({
+        content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+        safelist: {
+          standard: [/^el-/],
+        },
+      }),
       importToCdn({
         modules: [
           autoComplete('axios'),
@@ -84,8 +97,23 @@ export default defineConfig(({command,mode}) => {
           globals: {
             vue: 'Vue',
           },
-          manualChunks(id) {
+          manualChunks: isLibBuild ? undefined : (id) => {
             if (id.includes('node_modules')) {
+              if (id.includes('jspdf')) {
+                return 'vendors/jspdf';
+              }
+              if (id.includes('html2canvas')) {
+                return 'vendors/html2canvas';
+              }
+              if (id.includes('js-beautify')) {
+                return 'vendors/js-beautify';
+              }
+              if (id.includes('ace-builds')) {
+                return 'vendors/ace-builds';
+              }
+              if (id.includes('element-plus')) {
+                return 'vendors/element-plus';
+              }
               return id.toString().split('node_modules/')[1].split('/')[0].toString();
             }
           }
@@ -93,7 +121,13 @@ export default defineConfig(({command,mode}) => {
       },
     },
     esbuild: {
-      drop: ['console', 'debugger']
+      drop: ['console', 'debugger'],
+      minify: true,
+    },
+    // 优化预构建
+    optimizeDeps: {
+      include: ['vue', 'element-plus', '@element-plus/icons-vue'],
+      exclude: ['jspdf', 'html2canvas'] // 按需加载
     }
   }
 });
