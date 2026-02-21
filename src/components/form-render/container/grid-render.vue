@@ -3,7 +3,7 @@
 		<div class="grid-render">
 			<el-row>
 				<gridColWidget
-					:key="item.id"
+					:key="getColKey(item)"
 					v-for="item in props.widget.cols"
 					:parent-option="options"
 					:parent="widget"
@@ -32,6 +32,10 @@
 			default: () => {},
 		},
 	})
+
+	const getColKey = (item) => {
+		return item?.id ?? item?.options?.propName
+	}
 </script>
 
 <style scoped></style>

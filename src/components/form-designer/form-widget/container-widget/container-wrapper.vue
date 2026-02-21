@@ -7,16 +7,28 @@
 	>
 		<slot></slot>
 		<div class="active" v-if="widget == designer.selectedWidget && isDesign">
-			<div class="active-title">
-				<el-icon><Rank /></el-icon>
+			<div class="active-drag">
+				<el-icon>
+					<Rank />
+				</el-icon>
 				<span>{{ widget.type }}</span>
 			</div>
 			<div class="active-action">
-				<el-icon @click.stop="selectParent"><Back /></el-icon>
-				<el-icon @click.stop="selectPreWidget"><Top /></el-icon>
-				<el-icon @click.stop="selectNextWidget"><Bottom /></el-icon>
-				<el-icon @click.stop="copySelfToParent"><CopyDocument /></el-icon>
-				<el-icon @click.stop="removeWidget"><DeleteFilled /></el-icon>
+				<el-icon @click.stop="selectParent">
+					<Back />
+				</el-icon>
+				<el-icon @click.stop="selectPreWidget">
+					<Top />
+				</el-icon>
+				<el-icon @click.stop="selectNextWidget">
+					<Bottom />
+				</el-icon>
+				<el-icon @click.stop="copySelfToParent">
+					<CopyDocument />
+				</el-icon>
+				<el-icon @click.stop="removeWidget">
+					<DeleteFilled />
+				</el-icon>
 			</div>
 		</div>
 	</div>
@@ -86,12 +98,11 @@
 		padding: 4px;
 		position: relative;
 		margin-bottom: 10px;
+
 		&.active {
 			border: 2px solid #409eff;
 		}
-		&.unactive {
-			border: 1px solid black;
-		}
+
 		:deep(.el-form-item) {
 			position: relative;
 			margin: 0;
@@ -99,7 +110,7 @@
 		}
 	}
 
-	.active-title {
+	.active-drag {
 		position: absolute;
 		z-index: 3;
 		color: #fff;
@@ -110,6 +121,7 @@
 		background: #40a0ff79;
 		padding: 2px 5px;
 		font-size: 12px;
+
 		&:hover {
 			background: #40a0ff;
 			cursor: move;
@@ -127,9 +139,11 @@
 		padding: 5px 5px 5px 0;
 		font-size: 16px;
 		align-items: center;
+
 		&:hover {
 			cursor: pointer;
 		}
+
 		.el-icon {
 			margin-left: 5px;
 		}
