@@ -15,6 +15,7 @@
 					v-bind="{ group: 'dragGroup', ghostClass: 'ghost', animation: 300 }"
 					@add="(e) => onDragAdd(e)"
 					@update="(e) => onDragUpdate(e)"
+					@start="onDragStart"
 					handle=".active-drag"
 				>
 					<template #item="{ element: widget, index }">
@@ -66,12 +67,26 @@
 
 	const onDragAdd = (e) => {
 		const { newIndex } = e
-		designer.addNewWidgetToContainer(undefined, newIndex)
-		designer.selectedWidget.index = newIndex
+		const isClone = e.pullMode === 'clone'
+		if (isClone) {
+			designer.addNewWidgetToContainer(undefined, newIndex)
+		} else {
+			designer.moveWidgetFromAToBContainer(e, designer)
+		}
+		const targetWidget = designer.widgetList[newIndex]
+		if (targetWidget) {
+			designer.selectWidget(targetWidget, newIndex)
+		}
+		designer.cloneWidget = null
+		designer.multipleWidget?.clear()
 	}
 
 	const onDragUpdate = (e) => {
 		designer.dragUpdate(e)
+	}
+
+	const onDragStart = () => {
+		designer.parentContainer = designer
 	}
 
 	const selectWidget = (widget, index) => {
@@ -124,9 +139,11 @@
 		box-sizing: border-box;
 		padding: 10px;
 	}
+
 	.form-body {
 		background: #fff;
 		padding: 10px;
+
 		.draggable {
 			min-height: calc(100vh - 95px);
 		}

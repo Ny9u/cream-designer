@@ -145,10 +145,10 @@ export class Designer {
 		console.log('移动组件的索引:', e.draggedContext.index)
 	}
 	//工作区物料索引更新后的回调
-	dragUpdate = (e) => {
+	dragUpdate = (e, targetList) => {
 		const { oldIndex, newIndex } = e
 		this.command.execute(
-			new MoveWidgetCommand(this.widgetList, oldIndex, newIndex),
+			new MoveWidgetCommand(targetList || this.widgetList, oldIndex, newIndex),
 			false
 		)
 	}

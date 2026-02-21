@@ -1,7 +1,12 @@
 <template>
-	<div v-if="!(widget.options.hidden && !isDesign)" class="form-item-wrapper">
+	<div
+		v-if="!(widget.options.hidden && !isDesign)"
+		class="form-item-wrapper"
+		@click.stop="selectSelf"
+	>
 		<!-- 所有关于options的配置都在widgetConfig这个文件提前设置好了 -->
 		<el-form-item
+			@click.stop="selectSelf"
 			:class="[widget.options.labelAlign]"
 			:label-width="widget.options.labelWidth + 'px'"
 			:rules="state.rules"
@@ -20,7 +25,9 @@
 		<div class="active" v-if="widget == designer.selectedWidget && isDesign">
 			<div class="active-border"></div>
 			<div class="active-drag">
-				<el-icon><Rank /></el-icon>
+				<el-icon>
+					<Rank />
+				</el-icon>
 				<span>{{ widget.type }}</span>
 				<!-- 隐藏icon -->
 				<el-icon v-if="widget.options.hidden" style="margin-left: 3px">
@@ -28,12 +35,22 @@
 				</el-icon>
 			</div>
 			<div class="active-action">
-				<el-icon @click.stop="selectParent"><Back /></el-icon>
+				<el-icon @click.stop="selectParent">
+					<Back />
+				</el-icon>
 				<!-- <i class="el-icon-arrow-left" @click.stop="selectParent"></i> -->
-				<el-icon @click.stop="selectPreWidget"><Top /></el-icon>
-				<el-icon @click.stop="selectNextWidget"><Bottom /></el-icon>
-				<el-icon @click.stop="copySelfToParent"><CopyDocument /></el-icon>
-				<el-icon @click.stop="removeWidget"><DeleteFilled /></el-icon>
+				<el-icon @click.stop="selectPreWidget">
+					<Top />
+				</el-icon>
+				<el-icon @click.stop="selectNextWidget">
+					<Bottom />
+				</el-icon>
+				<el-icon @click.stop="copySelfToParent">
+					<CopyDocument />
+				</el-icon>
+				<el-icon @click.stop="removeWidget">
+					<DeleteFilled />
+				</el-icon>
 			</div>
 		</div>
 	</div>
@@ -93,6 +110,16 @@
 		designer.selectWidget(props.parent, props.parentIndex)
 	}
 
+	const selectSelf = () => {
+		const list = props.parent?.widgetList ?? []
+		const index = list.indexOf(props.widget)
+		if (index > -1) {
+			designer.selectWidget(props.widget, index)
+		} else {
+			designer.selectWidget(props.widget, props.parentIndex)
+		}
+	}
+
 	const selectPreWidget = () => {
 		designer.selectWidgetByWidgetListIndex(
 			props.parent.widgetList,
@@ -120,11 +147,13 @@
 		padding: 4px;
 		position: relative;
 		margin-bottom: 10px;
+
 		:deep(.el-form-item) {
 			position: relative;
 			margin: 0;
 			z-index: 2;
 		}
+
 		.active-border {
 			position: absolute;
 			width: 100%;
@@ -136,6 +165,7 @@
 			border: 2px solid #409eff;
 			z-index: 1;
 		}
+
 		.active-drag {
 			position: absolute;
 			z-index: 3;
@@ -147,11 +177,13 @@
 			background: #40a0ff79;
 			padding: 2px 5px;
 			font-size: 12px;
+
 			&:hover {
 				background: #40a0ff;
 				cursor: move;
 			}
 		}
+
 		.active-action {
 			position: absolute;
 			z-index: 3;
@@ -163,28 +195,34 @@
 			padding: 5px 5px 5px 0;
 			font-size: 16px;
 			align-items: center;
+
 			&:hover {
 				cursor: pointer;
 			}
+
 			.el-icon {
 				margin-left: 5px;
 			}
 		}
 	}
+
 	:deep(.el-form-item__label) {
 		padding: 0;
 		white-space: nowrap;
 	}
+
 	.left {
 		:deep(.el-form-item__label) {
 			justify-content: flex-start;
 		}
 	}
+
 	.center {
 		:deep(.el-form-item__label) {
 			justify-content: center;
 		}
 	}
+
 	.right {
 		:deep(.el-form-item__label) {
 			justify-content: flex-end;
